@@ -1,0 +1,22 @@
+{
+  "name": "notwindows",
+  "version": "1.0.0",
+  "description": "NotWindows",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GavinGoGaming/bio-run.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GavinGoGaming/bio-run/issues"
+  },
+  "homepage": "https://github.com/GavinGoGaming/bio-run#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
