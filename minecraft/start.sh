@@ -5,4 +5,6 @@ cd client
 npm ci
 npm start &
 cd ../server
-java -Xmx512M -Xms512M -jar server.jar nogui
+# Start both bukkit 1.8.8 and bungeecord 1.8.8
+java -jar spigot-1.8.8.jar -Xms512M -Xmx512M &
+java -jar BungeeCord.jar &

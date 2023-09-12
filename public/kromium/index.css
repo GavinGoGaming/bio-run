@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'Roboto reg';
+    src: url('./fonts/Roboto-Regular.ttf') format('truetype');
+}@font-face {
+    font-family: 'Roboto med';
+    src: url('./fonts/Roboto-Medium.ttf') format('truetype');
+}
+/* We are recreating the look of Chrome! */
+body {
+    font-family: 'Roboto reg';
+    font-size: larger;
+    background-color: #fff;
+    color: #000;
+    margin: 0;
+    width: 100vw;
+    height:100vh;
+    padding: 0;
+}
+#top-bar {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    height: 60px;
+}
+#tabs {
+    padding: 10px;
+    color: #000;
+    height: 60px;
+}
+.tab:before { content: ' ';display: inline-block;vertical-align: bottom;height: 100%;}
+.tab {
+    border: 1px solid #ccc;
+    width: 200px;
+    display: inline-block;
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+    line-height:60px;
+    background-color: #fff;
+    color: #000;
+    height: 60px;
+    cursor: default;
+}
+.tab-class {
+    border: 1px solid #ccc;
+    width: 300px;
+    display: inline-block;
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+    line-height:60px;
+    background-color: #fff;
+    color: #000;
+    height: 60px;
+    cursor: default;
+}
+.tab-class img{
+    display: inline-block;
+    vertical-align: middle;
+    font: 16px/1 Arial sans-serif;
+    max-height:100%;
+    max-width:100%;
+    width: 50px;
+    height: 40px;
+    margin-bottom: 8px;
+    padding: 6px;
+}
+.tab img{
+    display: inline-block;
+    vertical-align: middle;
+    font: 16px/1 Arial sans-serif;
+    max-height:100%;
+    max-width:100%;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    padding: 6px;
+}
+#plus {
+    font-family: 'Josefin Sans';
+    font-size: xx-large;
+    text-shadow: 0px 1px 10px #000;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.tab-plus {
+    cursor: pointer;
+    font-family: 'Josefin Sans';
+    font-size: xx-large;
+    text-shadow: 0px 1px 2px #000;
+    margin-left: 10px;
+    flex-direction: right;
+    align-items: right;
+    text-align: right;
+    float: right;
+    margin-right: 10px;
+}
+
+/* search bar */
+#search-bar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+#search-bar input {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 60%;
+    font-size: 16px;
+    font-family: 'Roboto reg';
+    color: #000;
+    outline: none;
+    z-index: 2;
+}
+#search-bar button {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 10%;
+    font-size: 16px;
+    font-family: 'Roboto reg';
+    color: #000;
+    outline: none;
+    z-index: 2;
+}
+
+iframe {
+    width: 100vw;
+    height: calc(100vh - 167px);
+    border: none;
+    border-top: 1px solid #000000;
+    margin: 0;
+    padding: 0;
+    margin-top: 80px;
+    overflow: hidden;
+}

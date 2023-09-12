@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Not Supported</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap">
+    <style>
+    body{
+        background-color: #333;
+        color: white;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    }
+    a:visited, a:active, a{
+        color: rgb(39, 165, 255);
+        text-decoration: none;
+    }
+    a:hover{
+        color: rgb(34, 155, 241);
+        text-decoration: none;
+    }
+    img {
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    }
+    div {
+        width:80vw;
+    }
+
+    .hidden {
+        display: none;
+        opacity: 1;
+    }
+    .dropdown-btn {
+        cursor: pointer;
+        user-select: none;
+    }
+    </style>
+    <link href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css" rel="stylesheet"/>
+</head>
+<body>
+    <center><h3>Please use an alternative URL!</h3>
+        This one may be Old, Blocked, or Danger-flagged. 
+        <br>
+        <br><br><br>
+        <h2>Step 1 - Uninstall <i class="dropdown-btn fa-solid fa-caret-down" data-dd="uinstall"></i></h2>
+        <div id="uinstall" class="hidden">
+            Uninstall any old versions of the app.<br>
+            <img src="/images/docs_uninstall_1.png"><br>
+            <img src="/images/docs_uninstall_2.png" width="300"><br><br>
+        </div>
+        <h2>Step 2 - Reinstall <i class="dropdown-btn fa-solid fa-caret-down" data-dd="links"></i></h2>
+        <div id="links" class="hidden">
+            Open one of the following links:<br>
+            <a href="https://topg.minecraft.pe/client.html">MCPE</a><br>
+            <a href="https://a.cool.crabdance.com/client.html">Crabdance</a><br>
+            <a href="https://i.play.happyminecraft.org/client.html">HappyMC</a><br><br>
+
+            Then, create a <b>windowed</b> shortcut for it. <br>
+            Three Dots > More Tools > Create Shortcut<br>
+            <img src="images/docs_uninstall_3.png" width="350">
+            Once your in, login again with the details.
+        </div>
+        <script>
+            try {
+                document.querySelectorAll('.dropdown-btn').forEach(e=>{
+                    e.addEventListener('click',()=>{
+                        let dd = document.querySelector(`#`+e.dataset.dd)
+                        dd.classList.toggle('hidden');
+                    })
+                })
+            } catch (e) {
+                alert(e)
+            }
+        </script>
+    </center>
+</body>
+</html>

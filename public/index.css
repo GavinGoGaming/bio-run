@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "Segoe UI";
+    src: url('./Segoe\ UI.ttf');
+}
 /* Additional custom styling */
 .start-menu {
     width: 240px;
@@ -6,7 +10,7 @@
     border: 1px solid #000;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    position: sticky;
+    position: absolute;
     bottom: 30px;
 }
 
@@ -58,14 +62,18 @@
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/1200px-Magnifying_glass_icon.svg.png')
 }
 
+.window {
+    position:absolute;
+}
+
 .start-menu-item {
     padding-top:8px;
     cursor: pointer;
     width: 100%;
     position: relative;
     height: 40px;
-    border-bottom: 1px solid white;
 }
+
 .start-menu-item:hover {
     background-color: #2b2b2b;
 }
@@ -74,12 +82,12 @@
     width: 32px;
     position: absolute;
     margin-left: 8px;
-    border: 1px solid white;
-    border-radius: 5px;
+    background-color: #292929;
 }
 .start-menu-item > a {
     position: absolute;
     margin-left: 48px;
+    color: white !important;
     margin-top: 10px;
 }
 
@@ -90,14 +98,51 @@ body {
     vertical-align: baseline;
     margin: 0;
     overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 0;
 }
 
-body.xp {
+body.xp.nwp:not(.linus) {
     background-image: url('https://virtualbackgrounds.site/wp-content/uploads/2020/07/windows-xp-wallpaper-bliss.jpg');
 }
+body:not(.nwp) {
+    background-image: url('/logo/nw11background.png') !important;
+    color:white !important;
+}
+/* any .windows change background from #ece9d8 to #fff when body is not .nwp */
+body:not(.nwp) .window {
+    background-color: #302f2b;
+}
 
-body:not(.xp) {
+@keyframes hide {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.hiding {
+    animation: hide 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+#blurrybody > *:not(.noblur) {
+    filter: blur(10px);
+}
+#blurrybody {
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+}
+body.xp.nwp.linus {
+    background-image: url('./images/ltt.png');
+}
+body.w10 {
+    background-image: url('./images/wp10.webp');
+    background-size: cover;
+}
+
+body:not(.xp):not(.w10) {
     background-color: #018081;
 }
 
@@ -115,12 +160,8 @@ body:not(.xp) {
     position: absolute;
     z-index: 0;
 }
-.grid.goes-right {
-    width:100%;
-    flex-direction: row;
-}
 
-.grid:not(.goes-right) > .grid-item {
+.grid > .grid-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,21 +173,34 @@ body:not(.xp) {
     margin: 5px;
     cursor: pointer;
 }
-.grid.goes-right > .grid-item {
-    display: flex;
+
+.grid-right {
+    display: grid;
+    grid-template-columns: repeat(7, 50px); /* Defines 4 columns each with a width of 50px */
+    grid-template-rows: repeat(3, 50px);    /* Defines 3 rows each with a height of 50px */
+    gap: 12px;
+    position: absolute;
+    z-index: 0;
+    overflow: scroll;
+    width: 99%;
+    height: 79%;
+}
+
+.grid-right > .grid-item {
+    display: block;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 50px;
     height: 50px;
-    padding: 5px;
-    margin: 5px;
-    float: left;
+    padding: 6px;
     cursor: pointer;
+    
 }
 
-body.xp .grid-item {
+
+body.xp .grid-item, body.w10 .grid-item {
     transition: all 0.2s ease-in-out;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -167,9 +221,14 @@ body.xp .grid-item {
     height: 32px;
 }
 
-.grid-item .title {
+body:not(.w10) .grid-item .title {
     font-size: 12px;
     font-family: "Pixelated MS Sans Serif";
+    font-weight: 800;
+}
+body.w10 .grid-item .title {
+    font-size: 12px;
+    font-family: "Segoe UI";
     font-weight: 800;
 }
 
@@ -184,7 +243,7 @@ body.xp .grid-item {
     height: 30px;
 }
 
-body:not(.xp) .taskbar {
+body:not(.xp):not(.w10) .taskbar {
     border-top: 1px solid #283430;
     background-color: #C2BFBF;
 }
@@ -192,6 +251,10 @@ body:not(.xp) .taskbar {
 body.xp .taskbar {
     background-color: #245DDA;
     border-top: 1px solid #000;
+}
+body.w10 .taskbar {
+    background-color: #9595ff;
+    border-top: 1px solid #ffffff;
 }
 
 .start-btn {
@@ -204,13 +267,18 @@ body.xp .taskbar {
 }
 
 /* Win 98 button */
-body:not(.xp) .start-btn {
+body:not(.xp):not(.w10) .start-btn {
     background-image: url('/images/98.png');
     height: 100%;
     width: 70px;
 }
+body.w10 .start-btn {
+    background-image: url('https://www.pngkit.com/png/full/404-4044658_windows-logo-windows-10-icon-png.png');
+    height: 100%;
+    width: 40px;
+}
 
-body:not(.xp) .start-btn:active {
+body:not(.xp):not(.w10) .start-btn:active {
     background-image: url('/images/98_pressed.png');
 }
 

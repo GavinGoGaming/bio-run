@@ -1,0 +1,13 @@
+{
+    "name": "Drive+",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      }
+    ],
+    "display": "standalone"
+  }
+  

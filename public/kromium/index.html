@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kromium</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="top-bar">
+        <div id="tabs">
+            
+            <div class="tab" onclick="document.getElementById('content').src = 'https://google.com/search?igu=1';"><img src="https://github.com/GavinGoGaming/bio-browse/blob/main/static/icon.png?raw=true" alt="">Google<span class="tab-plus">x</span></div>
+            <div class="tab-class" onclick="window.open('https://classroom.google.com')"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Google_Classroom_Logo.png" alt="">Classroom<span class="tab-plus">x</span></div>
+            <span id="plus">+</span>
+            <span style="float:right;">WARNING: Legacy browser! Use Internet<br>WARNING: Explorer for a better experience</span>
+        </div>
+        <div id="search-bar">
+            <select name="mode" id="smode" style="z-index: 2;">
+                <option value="google">Google</option>
+                <option value="archive">Unblock (archive)</option>
+                <option value="cache">Unblock (cache)</option>
+            </select>
+            <label for="smode">Mode</label>
+            <input id="search" placeholder="Search Google or type a URL">
+            <button id="search-btn" onclick="
+            var search = document.getElementById('search').value;
+            var url = '';
+            document.getElementById('content').src = 'loading.html';
+            switch(document.querySelector('#smode').value) {
+                case 'google':
+                if(search.startsWith('http://') || search.startsWith('https://') || search.startsWith('ftp://') || search.startsWith('ftps://') || search.startsWith('file://') || search.startsWith('chrome://') || search.startsWith('chrome-extension://') || search.startsWith('chrome-search://') || search.startsWith('about://') || search.startsWith('data:')) {
+                    url = search;
+                }else {
+                    url = 'https://google.com/search?q=' + search+'&igu=1'
+                }
+                break;
+
+                case 'archive':
+                if(search.startsWith('http://') || search.startsWith('https://') || search.startsWith('ftp://') || search.startsWith('ftps://') || search.startsWith('file://') || search.startsWith('chrome://') || search.startsWith('chrome-extension://') || search.startsWith('chrome-search://') || search.startsWith('about://') || search.startsWith('data:')) {
+                    url = 'https://web.archive.org/web/20240000000000/'+search;
+                }else {
+                    url = 'https://web.archive.org/web/20240000000000/https://google.com/search?q=' + search
+                }
+                break;
+
+                case 'cache':
+                if(search.startsWith('http://') || search.startsWith('https://') || search.startsWith('ftp://') || search.startsWith('ftps://') || search.startsWith('file://') || search.startsWith('chrome://') || search.startsWith('chrome-extension://') || search.startsWith('chrome-search://') || search.startsWith('about://') || search.startsWith('data:')) {
+                    url = 'https://webcache.googleusercontent.com/search?q=cache:'+encodeURIComponent(search)+'&igu=1'
+                }else {
+                    url = 'https://webcache.googleusercontent.com/search?q=cache:'+encodeURIComponent(search)+'&igu=1'
+                }
+                break;
+            }
+            document.getElementById('content').src = url;
+            ">Search</button>
+        </div>
+    </div>
+    <iframe src="https://google.com/search?igu=1" frameborder="0" id="content"></iframe>
+</body>
+</html>
