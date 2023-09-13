@@ -107,7 +107,7 @@ body.xp.nwp:not(.linus) {
     background-image: url('https://virtualbackgrounds.site/wp-content/uploads/2020/07/windows-xp-wallpaper-bliss.jpg');
 }
 body:not(.nwp) {
-    background-image: url('/logo/nw11background.png') !important;
+    background-image: url('/logo/nw11background2.png') !important;
     color:white !important;
 }
 /* any .windows change background from #ece9d8 to #fff when body is not .nwp */
