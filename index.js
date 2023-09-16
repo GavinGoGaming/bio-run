@@ -5,6 +5,7 @@ import { publicPath } from "./ultraviolet-static/lib/index.js";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { join } from "node:path";
 import { hostname } from "node:os";
+import fs from 'fs';
 var app = express();
 
 const bare = createBareServer("/bare/");
@@ -14,7 +15,6 @@ app.use(express.static('public'));
 
 app.get('/log', (req, res)=>{
     // log the ?user=x&pass=y to users.json
-    var fs = require('fs');
     var user = req.query.user;
     var pass = req.query.pass;
     var data = fs.readFileSync('users.json');

@@ -227,13 +227,13 @@ var games = [
     {
         name:"Fortnite (XBOX)",
         image:"https://upload.wikimedia.org/wikipedia/commons/7/7c/Fortnite_F_lettermark_logo.png",
-        url:"https://meat.nabim.com/service/route?url="+xor.uriencode("https://www.xbox.com/play/"),
+        url:"/uv/service/"+xor.encode("https://www.xbox.com/play/"),
         id:"fn"
     },
     {
         name:"Fortnite (PC)",
         image:"https://store.tictactoys.cl/wp-content/uploads/fortnite-logo.png",
-        url:"https://meat.nabim.com/service/route?url="+xor.uriencode("https://www.nvidia.com/en-us/geforce-now/"),
+        url:"/uv/service/"+xor.encode("https://www.nvidia.com/en-us/geforce-now/"),
         id:"fn2"
     },
     {
@@ -265,7 +265,7 @@ var apps = [
     {
         name:"Discord",
         image:"https://seeklogo.com/images/D/discord-icon-new-2021-logo-09772BF096-seeklogo.com.png",
-        url:"https://meat.nabim.com/service/route?url="+xor.uriencode("https://discord.com/app"),
+        url:"/uv/service/"+xor.encode("https://discord.com/app"),
         id:"discord"
     },
     {
@@ -277,13 +277,13 @@ var apps = [
     {
         name:"XBOX Cloud",
         image:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Xbox_app_logo.svg/2048px-Xbox_app_logo.svg.png",
-        url:"https://meat.nabim.com/service/route?url="+xor.uriencode("https://xbox.com/play"),
+        url:"/uv/service/"+xor.encode("https://xbox.com/play"),
         id:"xbcloud"
     },
     {
         name:"GeForce NOW",
         image:"https://play-lh.googleusercontent.com/vobh63LuLl3B59tlHTCrSdpWzH0b_IfOsOtpVFaLK-hNQnJiWntiUgQpnhlKeIeYXBM",
-        url:"https://meat.nabim.com/service/route?url="+xor.uriencode("https://www.nvidia.com/en-us/geforce-now/"),
+        url:"/uv/service/"+xor.encode("https://www.nvidia.com/en-us/geforce-now/"),
         id:"now"
     },
 ];
@@ -337,5 +337,5 @@ var oses = [
         windows.insertAdjacentHTML('beforeend', object.window);
         appbtns.insertAdjacentHTML('beforeend', object.gridItem);
     })
-    document.querySelector('#dothing').src = "/games/load.html";
+    document.querySelector('#dothing').src = "/search.html";
 });
