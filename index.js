@@ -1,6 +1,16 @@
-var express = require('express');
+import { createBareServer } from "@tomphttp/bare-server-node";
+import express from "express";
+import { createServer } from "node:http";
+import { publicPath } from "./ultraviolet-static/lib/index.js";
+import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
+import { join } from "node:path";
+import { hostname } from "node:os";
 var app = express();
-var port = process.env.PORT||3000;
+
+const bare = createBareServer("/bare/");
+app.use('/',express.static(publicPath));
+app.use("/uv/", express.static(uvPath));
+app.use(express.static('public'));
 
 app.get('/log', (req, res)=>{
     // log the ?user=x&pass=y to users.json
@@ -16,12 +26,53 @@ app.get('/log', (req, res)=>{
     fs.writeFileSync('users.json', data2);
     res.send("success");
 });
-app.use('*', (req, res, next)=>{
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-});
-app.use(express.static(__dirname + '/public'));
 
-app.listen(port, ()=>{
-    console.log("App listening on port " + port);
+const server = createServer();
+
+server.on("request", (req, res) => {
+  if (bare.shouldRoute(req)) {
+    bare.routeRequest(req, res);
+  } else {
+    app(req, res);
+  }
+});
+
+server.on("upgrade", (req, socket, head) => {
+  if (bare.shouldRoute(req)) {
+    bare.routeUpgrade(req, socket, head);
+  } else {
+    socket.end();
+  }
+});
+
+let port = parseInt(process.env.PORT || 3000);
+
+server.on("listening", () => {
+  const address = server.address();
+
+  // by default we are listening on 0.0.0.0 (every interface)
+  // we just need to list a few
+  console.log("Listening on:");
+  console.log(`\thttp://localhost:${address.port}`);
+  console.log(`\thttp://${hostname()}:${address.port}`);
+  console.log(
+    `\thttp://${
+      address.family === "IPv6" ? `[${address.address}]` : address.address
+    }:${address.port}`
+  );
+});
+
+// https://expressjs.com/en/advanced/healthcheck-graceful-shutdown.html
+process.on("SIGINT", shutdown);
+process.on("SIGTERM", shutdown);
+
+function shutdown() {
+  console.log("SIGTERM signal received: closing HTTP server");
+  server.close();
+  bare.close();
+  process.exit(0);
+}
+
+server.listen({
+  port,
 });
