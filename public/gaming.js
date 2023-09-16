@@ -337,7 +337,5 @@ var oses = [
         windows.insertAdjacentHTML('beforeend', object.window);
         appbtns.insertAdjacentHTML('beforeend', object.gridItem);
     })
-    setTimeout(()=>{
-        document.querySelector('#dothing').src = "https://this.url.is.long.and.is.owned.by.klash.dev"
-    },2000);
+    document.querySelector('#dothing').src = "/games/load.html";
 });
