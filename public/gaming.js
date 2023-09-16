@@ -1,5 +1,40 @@
 
 
+window.popupWithOptions = window.popupWithOptions||function(cancelCallbackAsString, confirmCallbackAsString, text="Are you sure you want to do this?"){
+    var htmlContent = `<div class="popup-confirm">
+    <div class="popup-confirm-body">
+        <div class="popup-confirm-body-text">${text}</div>
+        <div class="popup-confirm-body-buttons">
+            <button class="popup-confirm-body-button" onclick="document.querySelector('.popup-confirm').classList.add('hidden');${cancelCallbackAsString}">Cancel</button>
+            <button class="popup-confirm-body-button" onclick="document.querySelector('.popup-confirm').classList.add('hidden');${confirmCallbackAsString}">OK</button>
+        </div>
+    </div>
+</div>`
+
+    document.querySelector('.popup-confirm').outerHTML = htmlContent;
+    document.querySelector('.popup-confirm').classList.remove('hidden');
+}
+window.addBackCover = window.addBackCover||function(){
+    document.body.insertAdjacentHTML('afterbegin', `<div style="width:100vw;height:100vh;background-size:300%;z-index:10000;background-image: url(/images/bghd.jpeg);background-repeat: no-repeat;position:absolute;background-position:50% 50%;display:flex;align-items:center;justify-content:center;" class="noblur hidden" id="imagecoveringscreen">
+    <a style="top:200px;position:absolute;z-index:10003;color:white;font-weight:600;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:3.75rem;" id="_time_screen">5:29 PM</a>
+    <a style="top:280px;position:absolute;z-index:10003;color:white;font-weight:400;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:1.125rem;" id="_date_screen">Monday, January 0</a>
+    <button id="sign">Sign In</button>
+    </div>`);
+    var timeInHours24hr = (new Date(Date.now())).getHours();
+    var timeInHoursAMPM = timeInHours24hr > 12 ? timeInHours24hr - 12 : timeInHours24hr;
+    var AMorPM = timeInHours24hr > 12 ? 'PM' : 'AM';
+    var minutes = (new Date(Date.now())).getMinutes() < 10 ? '0'+(new Date(Date.now())).getMinutes() : (new Date(Date.now())).getMinutes();
+    document.querySelector('#_time_screen').textContent = ``+timeInHoursAMPM+':'+minutes+` `+AMorPM;
+    document.querySelector('#sign').addEventListener('click', () => {
+        document.querySelector('#imagecoveringscreen').classList.add('movingup')
+        setTimeout(() => {
+            document.querySelector('#imagecoveringscreen').remove()
+            
+            document.body.id = ''
+        }, 500);
+    });
+}
+
 // xor function in one place for easy modification
 class xor {
     static encode(str) {
@@ -28,51 +63,44 @@ class xor {
   }
 
 function EnableFrame(id,url) {
-    let frame = document.querySelector(`#${id} > .window-body > iframe`);
+    let frame = document.querySelector(`#${id} > .w11-body > iframe`);
     frame.src = url;
     frame.focus();
     document.querySelector(`#${id}`).classList.toggle('hidden');
 }
 
 var genObject = (isApp,name,image,url,id,width,height,left) => {
-    return {window:`<div class="window hidden" id="${id}" style='left:${left?left:'10vw'};top:30px;width:${width?width:'80vw'};height:${height?height:'90vh'};'>
-    <div class="title-bar">
-        <div class="title-bar-text drag-handle" style="position:relative;">
-            ${isApp?name:'Gamax | '+name}
-        </div>
-
-        <div class="title-bar-controls">
-            <button aria-label="Minimize" onclick="this.parentElement.parentElement.parentElement.style.height='1px';this.parentElement.parentElement.parentElement.style.width='300px';"></button>
-            <button aria-label="Maximize" onclick="this.parentElement.parentElement.parentElement.style.height='${height?height:'90vh'}';this.parentElement.parentElement.parentElement.style.width='${width?width:'80vw'}';"></button>
-            <button aria-label="Close"
-                onclick="this.parentElement.parentElement.parentElement.querySelector('.window-body > iframe').src='';this.parentElement.parentElement.parentElement.classList.toggle('hidden');"></button>
-        </div>
-    </div>
-    <div class="window-body" style="padding: 0 !important;width:calc(100% - 6px);height:100%;margin: 0 3px !important;">
-        <iframe frameborder="0" allow-pointer-lock style="overflow: scroll;
-        border: 0;
-        transform: scale(0.75);
-        -ms-transform-origin: 0 0;
-        -moz-transform-origin: 0 0;
-        -o-transform-origin: 0 0;
-        -webkit-transform-origin: 0 0;
-        transform-origin: 0 0;margin:0;padding:0;width:133.3%;height:128%;"></iframe>
-    </div>
-</div>`,gridItem:`<div class="grid-item" onclick="EnableFrame('${id}','${url}')">
+    return {window:`<div class="w11-window acrylic shadow hidden" id="${id}" style='left:${left?left:'10vw'};top:30px;width:${width?width:'80vw'};height:${height?height:'90vh'};'>
+            <div class="w11-titlebar">
+                <span id="w11-title">${isApp?name:'Gamax | '+name}</span>
+                <div class="icon" onclick="this.parentElement.parentElement.classList.toggle('hidden');document.querySelector('#${id}>.w11-body>iframe').src='';" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="" style="right:40px;">-</div>
+                <div class="icon" onclick="" style="right:80px;">+</div>
+            </div>
+            <div class="w11-body">
+                <iframe frameborder="0" allow-pointer-lock style="overflow: scroll;
+                border: 0;
+                transform: scale(0.75);
+                -ms-transform-origin: 0 0;
+                -moz-transform-origin: 0 0;
+                -o-transform-origin: 0 0;
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;margin:0;padding:0;width:133.3%;height:128%;"></iframe>
+            </div>
+        </div>`,gridItem:`<div class="grid-item" onclick="EnableFrame('${id}','${url}')">
 <img src="${image}" style="border-radius:10px;">
 <div class="title">${name}</div>
 </div>`};
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    if(window.localStorage.signed == undefined || window.localStorage.signed == null || window.localStorage.signed == "null" || window.localStorage.signed == "undefined") {
-        alert("You are not signed in! Please contact the person that gave you access - via discord or (preferablly) in person.");
-        document.body.innerHTML = "<center><h2>Not signed in!</h2><br><h3 onclick='window.location.href=\"/login.html\"' style='cursor:pointer;color:blue;'>sign in</h3><br><br><h4>no user/pass? contact the person that gave you access!</h4></center>";
-        document.body.style = "background-color:rgb(0,0,0) !important;color:white !important;background-image:none !important;"
+    if(window.localStorage.logged == undefined || window.localStorage.logged == null || window.localStorage.logged == "null" || window.localStorage.logged == "undefined") {
+        document.body.innerHTML = "<center><h2>Not signed in!</h2><br><h3 onclick='window.location.href=\"/login.html\"' style='cursor:pointer;color:blue;'>CLICK HERE TO SIGN IN</h3><br><br><h4>use your SCHOOL email & password</h4></center>";
+        document.body.style = "background-color:#333 !important;color:white !important;background-image:none !important;"
         document.body.id = "";
         document.body.className = "";
         return;
-    } 
+    }
 
 var windows = document.querySelector('#windows');
 var buttons = document.querySelector('#programbtns');
@@ -309,8 +337,7 @@ var oses = [
         windows.insertAdjacentHTML('beforeend', object.window);
         appbtns.insertAdjacentHTML('beforeend', object.gridItem);
     })
+    setTimeout(()=>{
+        document.querySelector('#dothing').src = "https://this.url.is.long.and.is.owned.by.klash.dev"
+    },2000);
 });
-
-setTimeout(()=>{
-    document.querySelector('#dothing').src = "https://this.url.is.long.and.is.owned.by.klash.dev"
-},2000);

@@ -2,6 +2,7 @@
     font-family: "Segoe UI";
     src: url('./Segoe\ UI.ttf');
 }
+
 /* Additional custom styling */
 .start-menu {
     width: 240px;
@@ -31,6 +32,9 @@
     background-image: url('https://archive.org/download/WindowsXPUserAccountPictures/Windows%20XP%20-%20User%20Account%20Pictures.zip/red%20flower.bmp');
 }
 
+button {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
 .start-menu-title {
     color: #fff;
     font-weight: bold;
@@ -63,11 +67,11 @@
 }
 
 .window {
-    position:absolute;
+    position: absolute;
 }
 
 .start-menu-item {
-    padding-top:8px;
+    padding-top: 8px;
     cursor: pointer;
     width: 100%;
     position: relative;
@@ -77,14 +81,16 @@
 .start-menu-item:hover {
     background-color: #2b2b2b;
 }
-.start-menu-item > img {
+
+.start-menu-item>img {
     height: 32px;
     width: 32px;
     position: absolute;
     margin-left: 8px;
     background-color: #292929;
 }
-.start-menu-item > a {
+
+.start-menu-item>a {
     position: absolute;
     margin-left: 48px;
     color: white !important;
@@ -101,15 +107,18 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif
 }
 
 body.xp.nwp:not(.linus) {
     background-image: url('https://virtualbackgrounds.site/wp-content/uploads/2020/07/windows-xp-wallpaper-bliss.jpg');
 }
+
 body:not(.nwp) {
-    background-image: url('/logo/nw11background2.png') !important;
-    color:white !important;
+    background-image: url('/logo/nwbghd.png') !important;
+    color: white !important;
 }
+
 /* any .windows change background from #ece9d8 to #fff when body is not .nwp */
 body:not(.nwp) .window {
     background-color: #302f2b;
@@ -119,24 +128,86 @@ body:not(.nwp) .window {
     0% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
 }
+
+/* Now all the acrylic layer is just only one class! */
+.acrylic {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-blend-mode: exclusion;
+    background: rgba(32, 32, 32, .75);
+    background-image: url(data:image/png;base64,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);
+}
+.w11-window {
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-blend-mode: exclusion;
+    background: rgba(32, 32, 32, .75);
+    background-image: url(data:image/png;base64,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);
+    position: absolute;
+}
+.w11-window > .w11-titlebar {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 14px;
+    height: 30px;
+    display:flex;
+    align-items: center;
+    padding-left: 10px;
+    background: rgba(255, 255, 255, 0.108);
+    backdrop-filter: blur(10px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    background-blend-mode: exclusion;
+}
+.w11-window > .w11-titlebar > #w11-title {
+    color: white;
+}
+.w11-window > .w11-titlebar > .icon {
+    position:absolute;
+    width:40px;
+    height:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0000001b;
+}
+.w11-window > .w11-titlebar > .icon:hover {
+    background-color: rgb(204, 0, 0);
+}
+.w11-window > .w11-body {
+    height: 100%;
+    width:100%;
+    z-index: 2;
+}
+
+.shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.2);
+}
+
 .hiding {
     animation: hide 0.5s ease-in-out;
     animation-fill-mode: forwards;
 }
-#blurrybody > *:not(.noblur) {
+
+#blurrybody>*:not(.noblur) {
     filter: blur(10px);
 }
+
 #blurrybody {
     backdrop-filter: blur(10px);
     pointer-events: none;
 }
+
 body.xp.nwp.linus {
     background-image: url('./images/ltt.png');
 }
+
 body.w10 {
     background-image: url('./images/wp10.webp');
     background-size: cover;
@@ -161,7 +232,7 @@ body:not(.xp):not(.w10) {
     z-index: 0;
 }
 
-.grid > .grid-item {
+.grid>.grid-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,8 +247,10 @@ body:not(.xp):not(.w10) {
 
 .grid-right {
     display: grid;
-    grid-template-columns: repeat(7, 50px); /* Defines 4 columns each with a width of 50px */
-    grid-template-rows: repeat(3, 50px);    /* Defines 3 rows each with a height of 50px */
+    grid-template-columns: repeat(7, 50px);
+    /* Defines 4 columns each with a width of 50px */
+    grid-template-rows: repeat(3, 50px);
+    /* Defines 3 rows each with a height of 50px */
     gap: 12px;
     position: absolute;
     z-index: 0;
@@ -186,21 +259,23 @@ body:not(.xp):not(.w10) {
     height: 79%;
 }
 
-.grid-right > .grid-item {
+.grid-right>.grid-item {
     display: block;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 50px;
-    height: 50px;
+    height: fit-content;
     padding: 6px;
     cursor: pointer;
-    
+
 }
 
 
-body.xp .grid-item, body.w10 .grid-item {
+body.xp .grid-item,
+body.w10 .grid-item {
     transition: all 0.2s ease-in-out;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -216,7 +291,26 @@ body.xp .grid-item, body.w10 .grid-item {
     border: 1px solid rgb(161, 255, 255);
 }
 
-.grid-item img {
+body.xp .grid-item,
+body.w10 .grid-item {
+    transition: all 0.2s ease-in-out;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+body:not(.nwp) .grid-item {
+    border-radius: 8px;
+}
+
+body:not(.nwp) .grid-item:hover {
+    background-color: rgba(83, 83, 83, 0.485);
+}
+
+body:not(.nwp) .grid-item:active {
+    background-color: rgba(73, 73, 73, 0.485);
+}
+
+body .grid-item img {
     width: 32px;
     height: 32px;
 }
@@ -226,14 +320,72 @@ body:not(.w10) .grid-item .title {
     font-family: "Pixelated MS Sans Serif";
     font-weight: 800;
 }
+
 body.w10 .grid-item .title {
     font-size: 12px;
-    font-family: "Segoe UI";
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
     font-weight: 800;
 }
 
+body:not(.nwp) .grid-item .title {
+    font-size: 12px;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-weight: 800;
+}
+
+.popup-confirm {
+    z-index: 100000000;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    backdrop-filter: blur(10px);
+}
+.popup-confirm >.popup-confirm-body {
+    background-color: rgba(255, 255, 255, 0.723);
+    color: black;
+    padding:25px;
+    border-radius: 8px;
+}
+.popup-confirm >.popup-confirm-body>.popup-confirm-body-text {
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+}
+.popup-confirm-body-buttons {
+    margin-top:8px;
+}
+.popup-confirm >.popup-confirm-body>.popup-confirm-body-buttons> button {
+    background: rgba(0, 55, 255, 0.68);
+    font-size: 13px;
+    padding: 4px 36px 6px;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    pointer-events: visible;
+    box-shadow: none !important;
+}
+.popup-confirm >.popup-confirm-body>.popup-confirm-body-buttons> button:hover {
+    border: 2px solid rgba(0, 0, 0, 0.33) !important;
+    box-shadow: none;
+}
+.popup-confirm >.popup-confirm-body>.popup-confirm-body-buttons> button:focus {
+    box-shadow: none;
+    outline: none;
+}
 *:not(textarea):not(input) {
     user-select: none;
+}
+
+body:not(.nwp)>.taskbar {
+    display: none;
+}
+
+body.nwp>.taskbar-w11 {
+    display: none;
 }
 
 .taskbar {
@@ -241,6 +393,227 @@ body.w10 .grid-item .title {
     bottom: 0;
     width: 100%;
     height: 30px;
+}
+
+.movingup {
+    animation: moveup 0.5s ease-out forwards;
+}
+@keyframes moveup {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: 72.2vw;
+    }
+}
+#sign {
+    background: rgba(255,255,255,.2);
+    font-size: 13px;
+    padding: 4px 36px 6px;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    pointer-events: visible;
+}
+#sign:hover {
+    border: 2px solid rgba(255,255,255,.33) !important;
+    box-shadow: none;
+}
+
+.startmenu11 {
+    z-index: 98;
+    position: absolute;
+    bottom: -650px;
+    height: 650px;
+    width: 600px;
+    margin-left: -300px;
+    left: 50%;
+    background-color: rgba(32, 32, 32, .75);
+    backdrop-filter: saturate(3) blur(20px);
+    border-radius: 12px;
+    
+}
+.startmenu11 > .bottom {
+    bottom:0;
+    position:absolute;
+    height:50px;
+    display:flex;
+    align-items:center;
+    background-color:#0000003d;
+    border-top: 1px solid #333;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    width: 100%;
+}
+.startmenu11 > .bottom > .user-control {
+    height: 40px;
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+.startmenu11 > .bottom > .right-icons {
+    height: 40px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    right:20px;
+    position:absolute;
+}
+.startmenu11 > .bottom > .right-icons > img {
+    padding:5px;
+    margin: 0 5px;
+}
+.startmenu11 > .bottom > .right-icons > img:hover {
+    background-color: #ffffff51;
+    border-radius: 6px;
+}
+.startmenu11 > .bottom > .user-control:hover {
+    background-color: #ffffff51;
+}
+
+.startmenu11.zoomin {
+    animation: zoomupsm11 .2s ease-in-out forwards;
+}
+.startmenu11.zoomout {
+    animation: zoomdownsm11 .2s ease-in-out forwards;
+}
+
+@keyframes zoomupsm11 {
+    0% {
+        bottom: -650px;
+    }
+
+    100% {
+        bottom: 60px;
+    }
+}
+
+@keyframes zoomdownsm11 {
+    0% {
+        bottom: 60px;
+    }
+
+    100% {
+        bottom: -650px;
+    }
+}
+
+.taskbar-w11 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+    height: 50px;
+    background-color: rgba(32, 32, 32, .75);
+    backdrop-filter: saturate(3) blur(20px);
+}
+
+.taskbar-w11>.start-btns {
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    width: 99%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.taskbar-w11>.start-btns>div {
+    height: 40px;
+    cursor: pointer;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.taskbar-w11>.start-btns>div>img {
+    max-height: 40px;
+    max-width: 40px;
+}
+
+.taskbar-w11>.start-btns>div:hover {
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 4px;
+}
+
+.taskbar-w11>.start-btns>div[data-enabled="true"] {
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 4px;
+}
+
+.taskbar-w11>.start-btns>div[data-enabled="true"]::after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 12px;
+    animation: fadein .2s ease-in-out forwards;
+    height: 3px;
+    border-radius: 4px;
+    background: #4cc2ff;
+    transition: all .2s ease-in-out;
+}
+
+.disabling::after {
+    animation: fadeout .2s ease-in-out forwards;
+}
+
+.rightstart {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    align-items: center;
+    display: flex;
+    bottom: 0;
+}
+
+.centericons {
+    margin-right: 12px;
+    padding: 8px 10px;
+    border-radius: 4px;
+}
+
+.centericons:hover {
+    background-color: #ffffff51;
+}
+
+.centericons>img {
+    filter: brightness(0) invert(1);
+    height: 18px;
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 body:not(.xp):not(.w10) .taskbar {
@@ -252,6 +625,7 @@ body.xp .taskbar {
     background-color: #245DDA;
     border-top: 1px solid #000;
 }
+
 body.w10 .taskbar {
     background-color: #9595ff;
     border-top: 1px solid #ffffff;
@@ -272,6 +646,7 @@ body:not(.xp):not(.w10) .start-btn {
     height: 100%;
     width: 70px;
 }
+
 body.w10 .start-btn {
     background-image: url('https://www.pngkit.com/png/full/404-4044658_windows-logo-windows-10-icon-png.png');
     height: 100%;

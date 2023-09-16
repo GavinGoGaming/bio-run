@@ -4,74 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Drive</title>
+    <title>Not just an unblocker | NotWindows</title>
     <link rel="stylesheet" href="https://unpkg.com/xp.css" id="theme">
-    <link rel="shortcut icon" href="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png"
-        type="image/png">
+    <link rel="shortcut icon" href="/logo/w11.png"type="image/png">
     <link rel="stylesheet" href="index.css">
     <link rel="manifest" href="manifest.json">
 </head>
 
 <body class="xp" id="blurrybody">
-    <script>setTimeout(() => {
-        document.querySelector('#imagecoveringscreen').classList.add('hiding')
-        setTimeout(() => {
-            document.body.id = ''
-            document.querySelector('#imagecoveringscreen').remove()
-        }, 500);
-    }, 1500);</script>
-    <div style="width:80vw;height:100vh;z-index:10000;background-image: url(/logo/nw11banner.png);background-size: contain;background-repeat: no-repeat;margin-left:auto;margin-right:auto;" class=noblur id="imagecoveringscreen"></div>
+    <div style="width:100vw;height:100vh;background-size:300%;z-index:10000;background-image: url(/images/bghd.jpeg);background-repeat: no-repeat;position:absolute;background-position:50% 50%;display:flex;align-items:center;justify-content:center;" class=noblur id="imagecoveringscreen">
+        <a style="top:200px;position:absolute;z-index:10003;color:white;font-weight:600;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:3.75rem;" id="_time_screen"></a>
+        <a style="top:280px;position:absolute;z-index:10003;color:white;font-weight:400;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:1.125rem;" id="_date_screen">Monday, January 0</a>
+        <button id="sign">Sign In</button>
+        <script>
+            var timeInHours24hr = (new Date(Date.now())).getHours();
+            var timeInHoursAMPM = timeInHours24hr > 12 ? timeInHours24hr - 12 : timeInHours24hr;
+            var AMorPM = timeInHours24hr > 12 ? 'PM' : 'AM';
+            var minutes = (new Date(Date.now())).getMinutes() < 10 ? '0'+(new Date(Date.now())).getMinutes() : (new Date(Date.now())).getMinutes();
+            document.querySelector('#_time_screen').textContent = ``+timeInHoursAMPM+':'+minutes+` `+AMorPM;
+        </script>
+    <script>
+        document.querySelector('#sign').addEventListener('click', () => {
+            document.querySelector('#imagecoveringscreen').classList.add('movingup')
+            setTimeout(() => {
+                document.querySelector('#imagecoveringscreen').remove()
+                
+                document.body.id = ''
+            }, 500);
+        });
+    </script>
+    </div>
+
+        <div class="popup-confirm hidden">
+            <div class="popup-confirm-body">
+                <div class="popup-confirm-body-text">Are you sure you want to do this?</div>
+                <div class="popup-confirm-body-buttons">
+                    <button class="popup-confirm-body-button" onclick="document.querySelector('.popup-confirm').classList.add('hidden')">Cancel</button>
+                    <button class="popup-confirm-body-button" onclick="document.querySelector('.popup-confirm').classList.add('hidden')">OK</button>
+                </div>
+            </div>
+        </div>
     <div class="grid">
-        <div class="grid-item" onclick="document.querySelector('#theme-swapper').classList.toggle('hidden');">
-            <img src="/images/paintbrush.webp">
-            <div class="title">Themes</div>
-        </div>
-        <div class="grid-item" onclick="document.querySelector('#ie').classList.toggle('hidden');">
-            <img src="/images/ie.png">
-            <div class="title">Internet Explorer</div>
-        </div>
+        <span style="position:absolute;top:5px;left:50%;text-align:center;width:100vw;font-weight:bold;font-size: 1em;color:white;"><span style="font-size:1.17em;">NotWindows</span> - not just an unblocker. <a style="color:rgb(0, 110, 255);text-decoration: none;" href="javascript:alert('NotWindows is a project I spend a lot of time on - I dont want it to be known as some dumb unblocker for school.')">Why?</a></span>
         <div class="grid-item" onclick="prompt('Stevia (CEO), Sironic & Bigman (Devs), FoxMoss (Domains & Games)', 'Who\'s stevia? I guess we\'ll never know.')">
             <img src="/images/help.svg">
             <div class="title">Credits</div>
         </div>
-        <div class="grid-item" onclick="document.querySelector('#newsroom').classList.toggle('hidden');">
-            <img src="https://learn.microsoft.com/en-us/windows/win32/uxguide/images/vis-icons-image5.png">
-            <div class="title">News</div>
-        </div>
-        <div class="grid-item" onclick="document.querySelector('#file-explorer').classList.toggle('hidden');">
-            <img src="/images/filex.png">
-            <div class="title">File Explorer</div>
-        </div>
-        <div class="grid-item" onclick="document.querySelector('#schedule').classList.toggle('hidden');">
-            <img src="/images/aos.webp">
-            <div class="title">Schedule</div>
-        </div>
-        <div class="grid-item" onclick="document.querySelector('#chrome').classList.toggle('hidden');">
-            <img src="/images/xpx.png" style="transform:rotate(45deg)">
-            <div class="title">Add Games</div>
-        </div>
-        <div class="grid-item" onclick="window.localStorage.clear();window.close();">
-            <img src="/images/close.svg">
-            <div class="title">Log Out</div>
-        </div>
     </div>
     <div id="windows" style="width:100vw;height:100vh;">
     
-        <div class="window hidden" id="theme-swapper" style='left:30px;top:30px;width:250px;'>
-            <div class="title-bar">
-                <div class="title-bar-text drag-handle">
-                    Theme Swapper
-                </div>
-    
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="this.parentElement.parentElement.parentElement.style.height='10px';this.parentElement.parentElement.parentElement.style.width='300px';"></button>
-                    <button aria-label="Maximize" onclick="this.parentElement.parentElement.parentElement.style.height='200px';this.parentElement.parentElement.parentElement.style.width='250px';"></button>
-                    <button aria-label="Close"
-                        onclick="this.parentElement.parentElement.parentElement.classList.toggle('hidden');"></button>
-                </div>
+        
+        <div class="w11-window acrylic shadow hidden" id="theme-swapper" style='left:100px;top:40px;width:400px;'>
+            <div class="w11-titlebar">
+                <span id="w11-title">Theme Swapper</span>
+                <div class="icon" onclick="alert('Close using taskbar at bottom of screen.')" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="" style="right:40px;">-</div>
+                <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
-            <div class="window-body">
-                <p>In here, you can change your theme!</p>
+            <div class="w11-body" style="padding:20px;">
+
+                <p>THESE OPTIONS ARE OLD AND WILL BE REMOVED NEXT UPDATE</p>
                 <section class="field-row">
                     <select name="Theme Selector" id="selecttheme"
                         onchange="
@@ -99,54 +91,37 @@
                     </select>
                 </section>
                 <section class="field-row">
-                    <input type="checkbox" id="linus" onchange="if(this.checked){document.body.classList.add('linus')}else{document.body.className = document.body.className.replace('linus', '')}">
+                    <input type="checkbox" id="linus" onchange="if(this.checked){document.body.classList.add('linus');alert('Only works with old UI.')}else{document.body.className = document.body.className.replace('linus', '')}">
                     <label for="linus">Tech Tips of Linus</label>
                 </section>
                 <section class="field-row">
-                    <input type="checkbox" id="nwp" onchange="if(this.checked){document.body.classList.add('nwp')}else{document.body.className = document.body.className.replace('nwp', '')}">
+                    <input type="checkbox" id="nwp" onchange="if(this.checked){document.body.classList.add('nwp');alert('Disabling new-UI is NOT RECCOMENDED and new ui will be ENFORCED in a future update.')}else{document.body.className = document.body.className.replace('nwp', '')}">
                     <label for="nwp">OG Windows XP Ui</label>
-                </section>
-                <section class="field-row" style="justify-content: flex-end">
-                    <button onclick="this.parentElement.parentElement.parentElement.classList.toggle('hidden');">OK</button>
                 </section>
             </div>
         </div>
-        <div class="window hidden" id="file-explorer-app" style='left:490px;top:40px;width:450px;height:250px;'>
-            <div class="title-bar">
-                <div class="title-bar-text drag-handle">
-                    File Explorer | Apps
-                </div>
-    
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="this.parentElement.parentElement.parentElement.style.height='10px';this.parentElement.parentElement.parentElement.style.width='300px';"></button>
-                    <button aria-label="Maximize" onclick="this.parentElement.parentElement.parentElement.style.height='250px';this.parentElement.parentElement.parentElement.style.width='450px';"></button>
-                    <button aria-label="Close"
-                        onclick="this.parentElement.parentElement.parentElement.classList.toggle('hidden');"></button>
-                </div>
+        <div class="w11-window acrylic shadow hidden" id="file-explorer-app" style='left:490px;top:40px;width:450px;height:250px;'>
+            <div class="w11-titlebar">
+                <span id="w11-title">File Explorer | Apps</span>
+                <div class="icon" onclick="this.parentElement.parentElement.classList.toggle('hidden')" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="" style="right:40px;">-</div>
+                <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
-            <div class="window-body">
-                <p style="border-bottom: 1px solid black;"><b>Address</b>: <span style="width:300px;border:0.5px solid black;box-sizing:border-box;">C:\Programs\AppData\Shortcuts</span> ("Applications" Folder)</p>
+            <div class="w11-body">
                 <section class="field-row">
                     <div class="grid-right apps" id="appbtns" style="position: absolute;left:0;top:50px;">
                     </div>
                 </section>
             </div>
         </div>
-
-        <div class="window hidden" id="file-explorer-os" style='left:490px;top:40px;width:450px;height:250px;'>
-            <div class="title-bar">
-                <div class="title-bar-text drag-handle">
-                    File Explorer | OSes
-                </div>
-    
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="this.parentElement.parentElement.parentElement.style.height='10px';this.parentElement.parentElement.parentElement.style.width='300px';"></button>
-                    <button aria-label="Maximize" onclick="this.parentElement.parentElement.parentElement.style.height='250px';this.parentElement.parentElement.parentElement.style.width='450px';"></button>
-                    <button aria-label="Close"
-                        onclick="this.parentElement.parentElement.parentElement.classList.toggle('hidden');"></button>
-                </div>
+        <div class="w11-window acrylic shadow hidden" id="file-explorer-os" style='left:490px;top:40px;width:450px;height:250px;'>
+            <div class="w11-titlebar">
+                <span id="w11-title">File Explorer | OSes</span>
+                <div class="icon" onclick="this.parentElement.parentElement.classList.toggle('hidden')" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="" style="right:40px;">-</div>
+                <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
-            <div class="window-body">
+            <div class="w11-body">
                 <p style="border-bottom: 1px solid black;"><b>WARNING</b>: You do need a login for these! Contact me for a chance to get one.</p>
                 <section class="field-row">
                     <div class="grid-right apps" id="osbtns" style="position: absolute;left:0;top:50px;">
@@ -154,23 +129,14 @@
                 </section>
             </div>
         </div>
-
-        <div class="window hidden" id="file-explorer" style='left:40px;top:40px;width:450px;height:250px;'>
-            <div class="title-bar">
-                <div class="title-bar-text drag-handle">
-                    File Explorer
-                </div>
-    
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="this.parentElement.parentElement.parentElement.style.height='10px';this.parentElement.parentElement.parentElement.style.width='300px';"></button>
-                    <button aria-label="Maximize" onclick="this.parentElement.parentElement.parentElement.style.height='250px';this.parentElement.parentElement.parentElement.style.width='450px';"></button>
-                    <button aria-label="Close"
-                        onclick="this.parentElement.parentElement.parentElement.classList.toggle('hidden');"></button>
-                </div>
+        <div class="w11-window acrylic shadow hidden" id="file-explorer" style='left:10px;top:10px;width:450px;height:250px;'>
+            <div class="w11-titlebar">
+                <span id="w11-title">File Explorer</span>
+                <div class="icon" onclick="alert('Please close using taskbar at bottom of screen.')" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="" style="right:40px;">-</div>
+                <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
-            <div class="window-body">
-                <p style="border-bottom: 1px solid black;"><b>Address</b>: <span style="width:300px;border:0.5px solid black;box-sizing:border-box;">C:\Programs</span> ("Programs" Folder)</p>
-                <section class="field-row">
+            <div class="w11-body"><section class="field-row">
                     <div class="grid-right" style="position: absolute;left:0;top:50px;">
                         <div class="grid-item" onclick="document.querySelector('#file-explorer-game').classList.toggle('hidden');">
                             <img src="./images/file.png" style="border-radius:10px;">
@@ -182,47 +148,34 @@
                             </div>
                             <div class="grid-item" onclick="document.querySelector('#file-explorer-os').classList.toggle('hidden');">
                                 <img src="./images/file.png" style="border-radius:10px;">
-                                <div class="title">Operating Systems</div>
-                                </div>
+                                <div class="title">OSes (Locked)</div>
+                            </div>
                     </div>
                 </section>
             </div>
         </div>
-        <div class="window hidden" id="file-explorer-game" style='left:490px;top:290px;width:450px;height:250px;'>
-            <div class="title-bar">
-                <div class="title-bar-text drag-handle">
-                    File Explorer | Games
-                </div>
-    
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="this.parentElement.parentElement.parentElement.style.height='10px';this.parentElement.parentElement.parentElement.style.width='300px';"></button>
-                    <button aria-label="Maximize" onclick="this.parentElement.parentElement.parentElement.style.height='250px';this.parentElement.parentElement.parentElement.style.width='450px';"></button>
-                    <button aria-label="Close"
-                        onclick="this.parentElement.parentElement.parentElement.classList.toggle('hidden');"></button>
-                </div>
+        <div class="w11-window acrylic shadow hidden" id="file-explorer-game" style='left:490px;top:290px;width:450px;height:250px;'>
+            <div class="w11-titlebar">
+                <span id="w11-title">File Explorer | Games</span>
+                <div class="icon" onclick="this.parentElement.parentElement.classList.toggle('hidden')" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="" style="right:40px;">-</div>
+                <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
-            <div class="window-body">
-                <p style="border-bottom: 1px solid black;"><b>Address</b>: <span style="width:300px;border:0.5px solid black;box-sizing:border-box;">C:\Programs\Games</span> ("Game" Folder)</p>
+            <div class="w11-body">
                 <section class="field-row">
                     <div class="grid-right" id="programbtns" style="position: absolute;left:0;top:50px;">
                     </div>
                 </section>
             </div>
         </div>
-        <div class="window hidden" id="ie" style='left:10vw;top:30px;width:80vw;height:90vh;'>
-            <div class="title-bar">
-                <div class="title-bar-text drag-handle" style="position:relative;">
-                    Internet Explorer 8 | NotGoogleX
-                </div>
-    
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="this.parentElement.parentElement.parentElement.style.height='10px';this.parentElement.parentElement.parentElement.style.width='300px';"></button>
-                    <button aria-label="Maximize" onclick="this.parentElement.parentElement.parentElement.style.height='90vh';this.parentElement.parentElement.parentElement.style.width='80vw';"></button>
-                    <button aria-label="Close"
-                        onclick="this.parentElement.parentElement.parentElement.classList.toggle('hidden');"></button>
-                </div>
+        <div class="w11-window acrylic shadow hidden" id="ie" style='left:10vw;top:30px;width:80vw;height:90vh;'>
+            <div class="w11-titlebar">
+                <span id="w11-title">Microsoft Edge</span>
+                <div class="icon" onclick="alert('Please close using taskbar at bottom of screen.')" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="" style="right:40px;">-</div>
+                <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
-            <div class="window-body" style="padding: 0 !important;width:calc(100% - 6px);height:100%;margin: 0 3px !important;">
+            <div class="w11-body">
                 <iframe id="dothing" allow-same-origin  frameborder="0" style="overflow: scroll;
                 border: 0;
                 transform: scale(0.75);
@@ -233,20 +186,15 @@
                 transform-origin: 0 0;margin:0;padding:0;width:133.3%;height:128%;"></iframe>
             </div>
         </div>
-        <div class="window hidden" id="schedule" style='left:10vw;top:30px;width:80vw;height:90vh;'>
-            <div class="title-bar">
-                <div class="title-bar-text drag-handle" style="position:relative;">
-                    Schedulizer
-                </div>
-    
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="this.parentElement.parentElement.parentElement.style.height='10px';this.parentElement.parentElement.parentElement.style.width='300px';"></button>
-                    <button aria-label="Maximize" onclick="this.parentElement.parentElement.parentElement.style.height='90vh';this.parentElement.parentElement.parentElement.style.width='80vw';"></button>
-                    <button aria-label="Close"
-                        onclick="this.parentElement.parentElement.parentElement.classList.toggle('hidden');"></button>
-                </div>
+
+        <div class="w11-window acrylic shadow hidden" id="schedule" style='left:10vw;top:30px;width:80vw;height:90vh;'>
+            <div class="w11-titlebar">
+                <span id="w11-title">Schedule</span>
+                <div class="icon" onclick="alert('Please close using taskbar at bottom of screen.')" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="" style="right:40px;">-</div>
+                <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
-            <div class="window-body" style="padding: 0 !important;width:calc(100% - 6px);height:100%;margin: 0 3px !important;">
+            <div class="w11-body">
                 <iframe src="https://schedulizer.klash.dev" allow-same-origin  frameborder="0" style="overflow: scroll;
                 border: 0;
                 transform: scale(1);
@@ -257,20 +205,15 @@
                 transform-origin: 0 0;margin:0;padding:0;width:100%;height:100%;"></iframe>
             </div>
         </div>
-        <div class="window hidden" id="newsroom" style='left:10vw;top:30px;width:80vw;height:90vh;'>
-            <div class="title-bar">
-                <div class="title-bar-text drag-handle" style="position:relative;">
-                    News
-                </div>
-    
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="this.parentElement.parentElement.parentElement.style.height='10px';this.parentElement.parentElement.parentElement.style.width='300px';"></button>
-                    <button aria-label="Maximize" onclick="this.parentElement.parentElement.parentElement.style.height='90vh';this.parentElement.parentElement.parentElement.style.width='80vw';"></button>
-                    <button aria-label="Close"
-                        onclick="this.parentElement.parentElement.parentElement.classList.toggle('hidden');"></button>
-                </div>
+
+        <div class="w11-window acrylic shadow hidden" id="newsroom" style='left:10vw;top:30px;width:80vw;height:90vh;'>
+            <div class="w11-titlebar">
+                <span id="w11-title">News</span>
+                <div class="icon" onclick="alert('Please close using taskbar at bottom of screen.')" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="" style="right:40px;">-</div>
+                <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
-            <div class="window-body" style="padding: 0 !important;width:calc(100% - 6px);height:100%;margin: 0 3px !important;">
+            <div class="w11-body">
                 <b id="newsroom_element"></b>
                 <script>
                     fetch("https://raw.githubusercontent.com/klashdevelopment/Raw-Storage/main/notwindows/news")
@@ -282,20 +225,15 @@
                 </script>
             </div>
         </div>
-        <div class="window hidden" id="chrome" style='left:10vw;top:30px;width:80vw;height:90vh;'>
-            <div class="title-bar">
-                <div class="title-bar-text drag-handle" style="position:relative;">
-                    Game Adder
-                </div>
-    
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="this.parentElement.parentElement.parentElement.style.height='10px';this.parentElement.parentElement.parentElement.style.width='300px';"></button>
-                    <button aria-label="Maximize" onclick="this.parentElement.parentElement.parentElement.style.height='90vh';this.parentElement.parentElement.parentElement.style.width='80vw';"></button>
-                    <button aria-label="Close"
-                        onclick="this.parentElement.parentElement.parentElement.classList.toggle('hidden');"></button>
-                </div>
+
+        <div class="w11-window acrylic shadow hidden" id="chrome" style='left:10vw;top:30px;width:40vw;height:40vh;'>
+            <div class="w11-titlebar">
+                <span id="w11-title">Game Adder</span>
+                <div class="icon" onclick="alert('Please close using taskbar at bottom of screen.')" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="" style="right:40px;">-</div>
+                <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
-            <div class="window-body" style="padding: 0 !important;width:calc(100% - 6px);height:100%;margin: 0 3px !important;">
+            <div class="w11-body">
                 <a style="color:white;font-family: Arial, Helvetica, sans-serif;font-weight: 600;font-size: 18px;" href="https://newgrim.klash.dev/" target="_blank">Use Newgrim to Generate the JSON</a><br>
                 <textarea name="" id="jsoncontent_ngrm" style="background-color: #444;color:white;" cols="80" rows="2" placeholder="Insert JSON content here"></textarea>
                 <br>
@@ -322,6 +260,7 @@
                 ">Preview (refresh to undo)</button><br>
             </div>
         </div>
+    </div>
     <div class="start-menu hidden">
         <div class="start-menu-header">
             <div class="start-button"></div>
@@ -347,6 +286,68 @@
             <div class="start-menu-item" onclick="document.querySelector('#discord').classList.toggle('hidden');">
                 <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="discord">
                 <a>Discord</a>
+            </div>
+        </div>
+    </div>
+    <div class="startmenu11">
+        <div class="bottom">
+            <div class="user-control" onclick="window.popupWithOptions('','window.localStorage.clear();window.close();','Are you sure you want to log out?')">
+                <img src="https://archive.org/download/WindowsXPUserAccountPictures/Windows%20XP%20-%20User%20Account%20Pictures.zip/red%20flower.bmp" width="30" height=30 style="border-radius: 50%;" alt="">
+                <span style="margin-left:5px;">John Doe</span>
+            </div>
+            <div class="right-icons">
+                <img style="filter: brightness(0) invert(1);" height="15" width="15" src="/images/moon.png" alt="" onclick="window.popupWithOptions('','document.body.id=\'blurrybody\';window.addBackCover()','Are you sure you want to sleep the computer?')">
+                <img style="filter: brightness(0) invert(1);" src="/images/w11/power.svg" alt="" onclick="window.popupWithOptions('','document.body.id=\'blurrybody\';window.addBackCover()','Are you sure you want to power the computer?')">
+            </div>
+        </div>
+    </div>
+    <div class="taskbar-w11">
+        <div class="start-btns">
+            <div class="startbtn" onclick="if(document.querySelector('.startmenu11').classList.contains('zoomin')){
+                document.querySelector('.startmenu11').classList.remove('zoomin');
+                document.querySelector('.startmenu11').classList.add('zoomout');
+                setTimeout(() => {
+                    document.querySelector('.startmenu11').classList.remove('zoomout')
+                }, 200);
+            }else{
+                document.querySelector('.startmenu11').classList.add('zoomin');
+            }"><img src="/logo/w11.png" width=30 height=30 alt=""></div>
+            <div class="startbtn"><img src="/images/w11/search.svg" alt=""></div>
+            <div class="startbtn" onclick="document.querySelector('#file-explorer').classList.toggle('hidden');document.querySelector('#file-explorer-os').classList.add('hidden');document.querySelector('#file-explorer-app').classList.add('hidden');document.querySelector('#file-explorer-game').classList.add('hidden');"><img width=30 src="/images/explorer.png" alt=""></div>
+            <div class="startbtn" onclick="document.querySelector('#ie').classList.toggle('hidden')"><img width=30 src="/images/edge.png" alt=""></div>
+            <div class="startbtn" onclick="document.querySelector('#newsroom').classList.toggle('hidden')"><img width=30 src="/images/news.png" alt=""></div>
+            <div class="startbtn" onclick="document.querySelector('#schedule').classList.toggle('hidden')"><img width=30 src="/images/calendar.webp" alt=""></div>
+            <div class="startbtn" onclick="document.querySelector('#theme-swapper').classList.toggle('hidden')"><img width=30 src="/images/paint.png" alt=""></div>
+            <div class="startbtn" onclick="document.querySelector('#chrome').classList.toggle('hidden')"><img width=30 src="/images/Gaming.webp" alt=""></div>
+            
+            <script>
+                document.querySelectorAll('.startbtn').forEach(x => {
+                    x.dataset.enabled = false;
+                    x.addEventListener('click', () => {
+                        x.dataset.enabled = x.dataset.enabled=='false'?'true':'false'
+                        if(x.dataset.enabled == 'false'){
+                            x.classList.add('disabling')
+                            setTimeout(() => {
+                                x.classList.remove('disabling')
+                            }, 200);
+                        }else {
+                            document.querySelectorAll('.startbtn').forEach(y => {
+                                if(y != x){
+                                    if(y.dataset.enabled == 'true') {
+                                        y.click();
+                                    }
+                                }
+                            });
+                        }
+                    })
+                })
+            </script>
+        </div>
+        <div class="rightstart">
+            <div class="centericons">
+                <img src="/images/w11/audio3.png" alt="">
+                <img src="/images/w11/battery.svg" alt="">
+                <img src="/images/w11/wifi.png" alt="">
             </div>
         </div>
     </div>
@@ -380,6 +381,28 @@
 
             // Set initial z-index
             $(".window").each(function () {
+                $(this).css("z-index", 1);
+            });
+        });
+        $(function () {
+            // Make boxes draggable
+            $(".w11-window").draggable({
+                handle: ".w11-titlebar",
+                stack: ".w11-window",
+                containment: "parent",
+                axis: 'xy'
+            });
+
+            // Bring clicked box to the top
+            $(".w11-window").on("click", function () {
+                $(".window").each(function () {
+                    $(this).css("z-index", 1);
+                });
+                $(this).css("z-index", 2);
+            });
+
+            // Set initial z-index
+            $(".w11-window").each(function () {
                 $(this).css("z-index", 1);
             });
         });
