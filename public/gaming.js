@@ -122,6 +122,8 @@ var games = [
         height: "165px",
         left: "40vw"
     },
+    {"name":"Parkour Block 3D","image":"https://static.keygames.com/7/115577/101528/1024x1024/parkour-block-3d-2.webp","url":"https://games.crazygames.com/en_US/parkour-block-3d/index.html","id":"parkour_block_3d"},
+    {"name":"OvO Online","image":"/images/ovo-online-cover.avif","url":"https://games.crazygames.com/en_US/ovo-online/index.html","id":"ovo_online"},
     {
         name:"WebRetro",
         image:"https://forums.libretro.com/uploads/default/original/2X/3/3178f0212ceaf3d604accacf6b7f98bf14afa794.ico",
@@ -260,6 +262,62 @@ var games = [
         url:"https://fox.klash.dev/main/games/sm64/",
         id:"sm64"
     },
+    {
+        name:"Funny Shooter 2",
+        image:"/uv/service/"+xor.encode("https://images.crazygames.com/funny-shooter-2/20220823175815/funny-shooter-2-cover?auto=format%2Ccompress&q=75&cs=strip&w=960&ch=DPR"),
+        url:"/uv/service/"+xor.encode("https://games.crazygames.com/en_US/funny-shooter-2/index.html"),
+        id: "funnyshooter2"
+    },
+    {
+        name:"Papa's Freezeria",
+        image:"https://lh3.googleusercontent.com/0N9nq1L7VjQ2qZt6u2f1ZKj5o0r6e4kG3jX4XJ2wZb3W6v3OZ1VZj1q8OJvUJ4Z9qg",
+        url:"https://games.poki.com/458768/f34a9475-1f14-432c-9457-d41097efb88f?tag=pg-v3.127.0&site_id=3&iso_lang=en&country=US&poki_url=https://poki.com/en/g/papas-freezeria&gdhoist=yes&nonPersonalized=n&familyFriendly=n&categories=18,37,69,96,388,839,873,1140,1141,1154&special_condition=landing",
+        id:"freezeria"
+    },
+    {
+        name:"Papa's Bakeria",
+        image:"https://lh3.googleusercontent.com/0N9nq1L7VjQ2qZt6u2f1ZKj5o0r6e4kG3jX4XJ2wZb3W6v3OZ1VZj1q8OJvUJ4Z9qg",
+        url:"https://games.poki.com/458768/116c3853-042e-40da-bb48-a1ebd47b3811?tag=pg-v3.127.0&site_id=3&iso_lang=en&country=US&poki_url=https://poki.com/en/g/papas-bakeria&gdhoist=yes&nonPersonalized=n&familyFriendly=n&categories=18,37,69,388,839,873,1141,1154&special_condition=landing",
+        id:"bakeria"
+    },
+    {
+        name:"Papa's Pancakeria",
+        image:"https://lh3.googleusercontent.com/0N9nq1L7VjQ2qZt6u2f1ZKj5o0r6e4kG3jX4XJ2wZb3W6v3OZ1VZj1q8OJvUJ4Z9qg",
+        url:"https://games.poki.com/458768/b1d28727-5791-4b62-bfa2-022a2f25b52d?tag=pg-v3.127.0&site_id=3&iso_lang=en&country=US&poki_url=https://poki.com/en/g/papas-pancakeria&gdhoist=yes&nonPersonalized=n&familyFriendly=n&categories=37,66,69,388,839,873&special_condition=landing",
+        id:"pancakeria"
+    },
+    {
+        name:"Papa's Pizzeria",
+        image:"https://lh3.googleusercontent.com/0N9nq1L7VjQ2qZt6u2f1ZKj5o0r6e4kG3jX4XJ2wZb3W6v3OZ1VZj1q8OJvUJ4Z9qg",
+        url:"https://games.poki.com/458768/c5859517-0d4a-4aed-87dc-ff26ca0240c4?tag=pg-v3.127.0&site_id=3&iso_lang=en&country=US&poki_url=https://poki.com/en/g/papas-pizzeria&gdhoist=yes&nonPersonalized=n&familyFriendly=n&categories=18,37,69,96,277,388,839,873,1109,1126,1140,1154&special_condition=landing",
+        id:"pizzeria"
+    },
+    //Burgeria, Cheezeria, Taco Mia, Hotdoggeria (LEAVE THE URL BLANK FOR THESE ONES):
+    {
+        name:"Papa's Burgeria",
+        image:"https://lh3.googleusercontent.com/0N9nq1L7VjQ2qZt6u2f1ZKj5o0r6e4kG3jX4XJ2wZb3W6v3OZ1VZj1q8OJvUJ4Z9qg",
+        url:"https://games.poki.com/458768/eef773ae-c2b1-45d3-8aeb-ec0145ab81dc?tag=pg-v3.127.0&site_id=3&iso_lang=en&country=US&poki_url=https://poki.com/en/g/papas-burgeria&gdhoist=yes&nonPersonalized=n&familyFriendly=n&categories=18,37,69,96,388,839,873,1109,1140,1141,1154&special_condition=landing",
+        id:"burgeria"
+    },
+    {
+        name:"Papa's Cheezeria",
+        image:"https://lh3.googleusercontent.com/0N9nq1L7VjQ2qZt6u2f1ZKj5o0r6e4kG3jX4XJ2wZb3W6v3OZ1VZj1q8OJvUJ4Z9qg",
+        url:"https://games.poki.com/458768/acb24546-6baa-476c-8948-9389513bd185?tag=pg-v3.127.0&site_id=3&iso_lang=en&country=US&poki_url=https://poki.com/en/g/papas-cheeseria&gdhoist=yes&nonPersonalized=n&familyFriendly=n&categories=4,18,37,69,96,388,839,873,1141,1154&special_condition=landing",
+        id:"cheezeria"
+    },
+    {
+        name:"Papa's Taco Mia",
+        image:"https://lh3.googleusercontent.com/0N9nq1L7VjQ2qZt6u2f1ZKj5o0r6e4kG3jX4XJ2wZb3W6v3OZ1VZj1q8OJvUJ4Z9qg",
+        url:"https://games.poki.com/458768/ccb6ad3c-1888-4c24-bdd6-985672179a60?tag=pg-v3.127.0&site_id=3&iso_lang=en&country=US&poki_url=https://poki.com/en/g/papas-taco-mia&gdhoist=yes&nonPersonalized=n&familyFriendly=n&categories=18,69,96,388,839,873,1141,1154&special_condition=landing",
+        id:"tacomia"
+    },
+    {
+        name:"Papa's Hotdoggeria",
+        image:"https://lh3.googleusercontent.com/0N9nq1L7VjQ2qZt6u2f1ZKj5o0r6e4kG3jX4XJ2wZb3W6v3OZ1VZj1q8OJvUJ4Z9qg",
+        url:"https://games.poki.com/458768/2162cb5c-5325-4dd8-bf9f-cdf254b77c15?tag=pg-v3.127.0&site_id=3&iso_lang=en&country=US&poki_url=https://poki.com/en/g/papas-hotdoggeria&gdhoist=yes&nonPersonalized=n&familyFriendly=n&categories=18,37,69,96,388,839,873,1126,1141,1154&special_condition=landing",
+        id:"hotdoggeria"
+    },
+    {"name":"Effing Worms 1","image":"https://lh4.googleusercontent.com/RrtCqhTWxmOT03Q6y89YXYdC-N4NLkA_4Hj1qlLJO-6MCyu5n9Dm74yiJuw-2a2dGYeIn7caVGyviDIhB3G4unYo_I2IvCBrZ2BhGzizPU2QPJAyAQJjA0nFY890vwRyJw=w1280","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Feffing-worms.xml","id":"effing_worms_1"}, {"name":"Effing Worms 2","image":"https://lh4.googleusercontent.com/z-JROxK9csfMFDnhetnmZ_YnPRkHAivEGvOVPEeKBLXgxt3TqQuSxVB8aorZ3Nheky2O45c4N4FPQUwFjHMteFBOTn-YhHxIQifaf3KGMW5gotl8SYggFKe-FZzLuhIWJQ=w1280","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Feffing-worms-2.xml","id":"effing_worms_2"}, {"name":"Friday Night Funkin","image":"https://lh5.googleusercontent.com/69qHEgk4SCYUNDZN5ONGXT2FekrIEMycx3Xa1VL-C875P0oa2AuWAZSFPLErbKRmZaND05_4H6FMqvWvXkdFEJkBrdTXM7mZssSioAAftQ029SZNoIHHxYkK2LhuR7z3ag=w1280","url":"https://v6p9d9t4.ssl.hwcdn.net/html/2876359-359162/index.html","id":"friday_night_funkin"},{"name":"Bloons Tower Defense 2","image":"https://lh4.googleusercontent.com/rYh7jTv68wQp14j4x3IGgntC4ybse3x9-JRpBc_gTQwP-z0WmpjzXSzQO7tE63A-vcLWq5zzvs-q_YnB9JaqbPJVbgyvrk-XZm6oI-gjgiOMgq-Vvbo2rjFLJ5M_aeldKA=w1280","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fbloons_tower_defense_2.xml","id":"bloons_tower_defense_2"}, {"name":"Bloons Tower Defense 3","image":"https://lh6.googleusercontent.com/8fVwNolsbz-rM_wLmIi8wdZedcW6I2JHGS9y4zJOwTyrc3ZMu67WUaNWvwSGofr2VetmN-Jx7hAUYoFhWjyBr30wjXuJdorK4bcAhTLXRQnuWWelfahdEBv0lAViGEq-jA=w1280","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fbloons-td-3.xml","id":"bloons_tower_defense_3"}, {"name":"Learn to Fly 1","image":"https://lh6.googleusercontent.com/kfgyg4yTu1NYZpU4xsJYkkZBRemBADRDxiEtcFtQSmyzfza35unzkFUSPjET4_nfJm7PmFXU0nTtiKb24lWx_wNmpDc03jeiUfF04ZwGmZtNOd0Z2pzMFV88uCDBIhwiHA=w1280","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/8c491f21-7353-4f1f-b2a0-9544824c4d28%2Flearn_to_fly.xml","id":"learn_to_fly_1"}, {"name":"Learn to Fly 2","image":"https://lh5.googleusercontent.com/qHRgYwQw_TlG1zGyWIJ2AUR4AWVuklovWwTelq0cjjogztLLUJ2fnO3vFQv4o3xk3f_ZdwsPsjj8uY8So5dTdqM=w1280","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Flearn-to-fly-2.xml","id":"learn_to_fly_2"},{"name":"Bloons 1","image":"https://lh4.googleusercontent.com/o9-TC_Vzyhz9Utfsux2rGq9xpAo5gbn3443N6auam7grXozjdxwkkoDGSBcSINECvjsvRszgOtW0xPejUrH_5UFW4CYODiUL8Twm9wfyk4SDhR1suZhIILyPKXY66Wg3Yg=w1280","url":"https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/bloons/index.html","id":"bloons_1"},{"name":"Bloxorz","image":"https://slopegame.io/upload/imgs/bloxorz-logo.jpg","url":"https://bloxorzunblocked.github.io/","id":"bloxorz"}, {"name":"Super Smash Flash","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Super_Smash_Flash_logo.png/250px-Super_Smash_Flash_logo.png","url":"https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fsuper-smash-flash.xml","id":"super_smash_flash"}, {"name":"Ultimate Flash Sonic","image":"https://lh3.googleusercontent.com/P6fkQnRvOaDeEioNaOHc8TAh4g7ZcANRXJ-9hd__l16tGtFXJBMfG7tf0ewQNN4wQsoZSrR161BK6-DdZF4dchZXNz-nwA8xNopyu-VBY4GReMPQ7rjtBzO5ch_DTM-eqg=w1280","url":"https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fultimate-flash-sonic.xml","id":"ultimate_flash_sonic"}, {"name":"Swing Monkey","image":"https://lh3.googleusercontent.com/mSFFJFrxc8GrahR1hj250qk7I-8k1KBd4O-R6ClPibULofIC6nXROyBawTKTaI_2RMMT8UGLw8Fkphy1yc2K4XhKlf0GcLaHqmR1jcIsNtxZJkzG5w7JyBnSb2sjKIJQ0w=w1280","url":"https://www.hoodamath.com/mobile/games/swing-monkey/game.html?nocheckorient=1","id":"swing_monkey"}, {"name":"Bloons Tower Defense 1","image":"https://lh6.googleusercontent.com/NeNnh-5Vw7eio_mxzZhuZEcoINtO3APMl_CE9uE18-KFl-kEoGR5mL2mR4KtQ2lnNEs4bi5u13eUdGme0ZXGT4A5foqnAqWJCT1YYGH44PCwT5wIk-OJpqLiBT9pCbBbLg=w1280","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fbloons_tower_defense.xml","id":"bloons_tower_defense_1"},
 ]
 var apps = [
     {

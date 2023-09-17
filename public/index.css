@@ -124,6 +124,10 @@ body:not(.nwp) .window {
     background-color: #302f2b;
 }
 
+::-webkit-scrollbar {
+    display:none;
+}
+
 @keyframes hide {
     0% {
         opacity: 1;
@@ -251,17 +255,16 @@ body:not(.xp):not(.w10) {
     /* Defines 4 columns each with a width of 50px */
     grid-template-rows: repeat(3, 50px);
     /* Defines 3 rows each with a height of 50px */
-    gap: 12px;
-    position: absolute;
+    gap: 18px 12px;
     z-index: 0;
     overflow: scroll;
+    
     width: 99%;
     height: 79%;
 }
 
 .grid-right>.grid-item {
-    display: block;
-    position: relative;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -270,7 +273,7 @@ body:not(.xp):not(.w10) {
     height: fit-content;
     padding: 6px;
     cursor: pointer;
-
+    margin:auto;
 }
 
 
