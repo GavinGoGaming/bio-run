@@ -18,7 +18,6 @@ app.get('/log', (req, res)=>{
     var user = req.query.user;
     var pass = req.query.pass;
     var data = fs.readFileSync('users.json');
-    print(data);
     var users = JSON.parse(data);
     // users is an array, add the {username:user,password:pass} to the array and write it back
     users.push({username:user,password:pass});
