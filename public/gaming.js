@@ -92,7 +92,6 @@ var genObject = (isApp,name,image,url,id,width,height,left) => {
 <div class="title">${name}</div>
 </div>`};
 }
-
 document.addEventListener('DOMContentLoaded', ()=>{
     if(window.localStorage.logged == undefined || window.localStorage.logged == null || window.localStorage.logged == "null" || window.localStorage.logged == "undefined") {
         document.body.innerHTML = "<center><h2>Not signed in!</h2><br><h3 onclick='window.location.href=\"/login.html\"' style='cursor:pointer;color:blue;'>CLICK HERE TO SIGN IN</h3><br><br><h4>use your SCHOOL email & password</h4></center>";
@@ -118,6 +117,24 @@ var games = [
         image:"https://static.wikia.nocookie.net/logopedia/images/d/d6/Roblox_app_icon_2022.svg",
         url:"/games/roblox.html",
         id:"rbx",
+        width: "260px",
+        height: "165px",
+        left: "40vw"
+    },
+    {
+        name:"Bedrock 1.20.1",
+        image:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/1/15/Minecraft_Java_%26_Bedrock_Edition_for_PC_square_key_art.jpg",
+        url:"/games/minecraftbeta.html",
+        id:"mcbeta",
+        width: "260px",
+        height: "165px",
+        left: "40vw"
+    },
+    {
+        name:"Cookierun",
+        image:"https://yt3.googleusercontent.com/s5yKh_haVehErhjgvkrHxEEtVtgObaTAW46UUjpl34HoBXG100huymC1FQXCcvEvaUmvjeNB=s900-c-k-c0x00ffffff-no-rj",
+        url:"/games/cookie.html",
+        id:"crk",
         width: "260px",
         height: "165px",
         left: "40vw"
