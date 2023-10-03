@@ -11,7 +11,7 @@
     <link rel="manifest" href="/manifest.json">
 </head>
 
-<body class="xp" id="blurrybody">
+<body class="xp">
     <div style="width:100vw;height:100vh;background-size:300%;z-index:10000;background-image: url(/images/bghd.jpeg);background-repeat: no-repeat;position:absolute;background-position:50% 50%;display:flex;align-items:center;justify-content:center;" class=noblur id="imagecoveringscreen">
         <a style="top:200px;position:absolute;z-index:10003;color:white;font-weight:600;font-family:Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:3.75rem;" id="_time_screen"></a>
         <a style="top:280px;position:absolute;z-index:10003;color:white;font-weight:400;font-family:Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:1.125rem;" id="_date_screen">Monday, January 0</a>
@@ -148,6 +148,10 @@
                             <div class="grid-item" onclick="document.querySelector('#file-explorer-os').classList.toggle('hidden');">
                                 <img src="./images/explorer.png" style="border-radius:10px;">
                                 <div class="title">OSes (Locked)</div>
+                            </div>
+                            <div class="grid-item" onclick="window.location.href = '/unblock.html';">
+                                <img src="./images/LOCK.webp" style="border-radius:10px;">
+                                <div class="title">Unblock Chromebook</div>
                             </div>
                     </div>
                 </section>
@@ -400,10 +404,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        var x = document.createElement('audio');
-        x.src = '/startup.mp3';
-        x.play();
-
         $(function () {
             // Make boxes draggable
             $(".window").draggable({

@@ -113,7 +113,7 @@ var games = [
         id:"mc15",
     },
     {
-        name:"Roblox (BETA)",
+        name:"Roblox Fixed",
         image:"https://static.wikia.nocookie.net/logopedia/images/d/d6/Roblox_app_icon_2022.svg",
         url:"/games/roblox.html",
         id:"rbx",
@@ -150,33 +150,6 @@ var games = [
     {"name":"Binding of Isaac","image":"https://thumbnails.pcgamingwiki.com/7/75/The_Binding_of_Isaac_Coverart.jpg/300px-The_Binding_of_Isaac_Coverart.jpg","url":"https://fox.klash.dev/main/games/bindingofissac/","id":"binding_of_isaac"},
     {"name":"n-gon","image":"https://fox.klash.dev/main/games/n-gon/favicon.ico","url":"https://fox.klash.dev/main/games/n-gon/","id":"n-gon"},{"name":"n","image":"/N 2a.ico","url":"https://fox.klash.dev/main/games/n/","id":"n"},{"name":"Hardest Game","image":"https://fox.klash.dev/main/games/worldshardestgame/images/splash.jpg","url":"https://fox.klash.dev/main/games/worldshardestgame/","id":"hardest_game"},{"name":"1v1LOL","image":"https://play-lh.googleusercontent.com/QYGRIDJbyVO7L7jH8CwiKJ4NumTGgcTVqU3ITooLWxro-eeNns1RZ0uwGGFe-r8M4co","url":"https://fox.klash.dev/main/games/1v1lol/","id":"1v1lol"},{"name":"Shell Shockers","image":"https://math.international/favicon.ico","url":"https://math.international/","id":"shell_shockers"},
     {"name":"Papa Louie 1","image":"https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/f54dee3512ad75e89cc256c6bec22f06.jpeg","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fpapa-louie-when-pizzas-attack.xml","id":"papa_louie_1:_when_pizzas_attack"}, {"name":"Run","image":"https://run4unblocked.files.wordpress.com/2016/08/run-1-unblocked.png","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Frun1.xml","id":"run"}, {"name":"Marvin Spectrum","image":"https://lh3.googleusercontent.com/2xI0KZfulhW8vAAIGQk-mAbQOcTkOYHgiZGM-_ww-Dez_i6ijFlkCkLfRoMC0AP0q2K-jlEuNt1GlnQxyUh41RECPe-3gSGq_Pp9hx5nlmeczYZj1k4uML8O1MdELhLBHw=w1280","url":"https://game.ubg4all.com/v2/marvinspectrum/","id":"marvin_spectrum"}, {"name":"MeatBoy","image":"https://lh4.googleusercontent.com/Osn_0FKBbT_XBBPpwFlu0qWcdsZb8CkiMsUoNmVTcslLkIZFuh79_rWqcVwfnO2UHSdaK1BbRdkS2z0O0iKzua10DwhFZ1_6uALzmSSDU5WpPQIvSGBJ2ECZW-s_pFBHyg=w1280","url":"https://fox.klash.dev/main/games/meatboy/","id":"super_meat_boy"}, {"name":"Doom","image":"https://images.gog-statics.com/7292b2c8a4f7829857569f3333a1df715ecbc6b6e5359e9ddd01962fd21b2e09_product_card_v2_mobile_slider_639.jpg","url":"https://fox.klash.dev/main/games/doom/","id":"the_doom_collection"}, {"name":"Alien Hominid","image":"https://lh6.googleusercontent.com/UlueOJT4yIcBQ7xY8MJgKJXhjB7XjDoNY-_8zpSM3SbchAd_Ue90mfdeYgFF6vCvsatvv4WDwsVXOs9WllmW7BeQ0KjJaBXTlNQ7xMk2jAwZhOfS_U8DFShwjMrBj9Z7gw=w1280","url":"https://bloxorzunblocked.github.io/","id":"alien_hominid"},
-    {
-        name:"PUBG Mobile",
-        image:"https://sm.ign.com/ign_in/cover/p/pubg-battl/pubg-battlegrounds_ydxm.jpg",
-        url:"/games/pubg.html",
-        id:"pubg",
-        width: "260px",
-        height: "165px",
-        left: "40vw"
-    },
-    {
-        name:"COD Mobile",
-        image:"https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/e1/6e/63/e16e6345-266f-ddf1-bda2-4e1f43995b18/AppIcon-1x_U007emarketing-0-9-0-85-220.png/512x512bb.jpg",
-        url:"/games/cod.html",
-        id:"cod",
-        width: "260px",
-        height: "165px",
-        left: "40vw"
-    },
-    {
-        name:"NBA Mobile",
-        image:"https://play-lh.googleusercontent.com/LSNNEr_f-M5oFDn-pPGyTBYK8os8aVzI7M3lKMT66f6Q4ojYQb0HIMfEt6mBNAEBHcU",
-        url:"/games/ealmb.html",
-        id:"nba",
-        width: "260px",
-        height: "165px",
-        left: "40vw"
-    },
     {
         name:"Vex 5",
         image:"https://fox.klash.dev/main/games/vex6/assets/icon.png",
