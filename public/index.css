@@ -3,6 +3,29 @@
     src: url('./Segoe\ UI.ttf');
 }
 
+@keyframes rot_blob {
+    from {rotate:0deg;}
+    50% {scale: 1 1.5;}
+    to {rotate:360deg;}
+}
+#cursor_blob {
+    animation: rot_blob 20s infinite;
+    position: absolute;
+    height: 300px;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    filter: blur(200px);
+
+    background: linear-gradient(
+        to left,
+        aquamarine,
+        mediumpurple
+    )
+}
+
 /* Additional custom styling */
 .start-menu {
     width: 240px;
@@ -286,12 +309,12 @@ body.w10 .grid-item {
 
 .grid-item:hover {
     background-color: rgba(0, 255, 255, 0.485);
-    border: 1px solid rgb(161, 255, 255);
+    /* border: 1px solid rgb(161, 255, 255); */
 }
 
 .grid-item:active {
     background-color: rgba(3, 170, 170, 0.485);
-    border: 1px solid rgb(161, 255, 255);
+    /* border: 1px solid rgb(161, 255, 255); */
 }
 
 body.xp .grid-item,

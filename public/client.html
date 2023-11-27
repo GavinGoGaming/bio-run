@@ -8,10 +8,17 @@
     <link rel="stylesheet" href="https://unpkg.com/xp.css" id="theme">
     <link rel="shortcut icon" href="/logo/w11.png"type="image/png">
     <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="search.css">
     <link rel="manifest" href="/manifest.json">
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="search.js" defer></script>
+    <script src="index.js" defer></script>
 </head>
 
 <body class="xp">
+    <div id="cursor_blob"></div>
     <div style="width:100vw;height:100vh;background-size:300%;z-index:10000;background-image: url(/images/bghd.jpeg);background-repeat: no-repeat;position:absolute;background-position:50% 50%;display:flex;align-items:center;justify-content:center;" class=noblur id="imagecoveringscreen">
         <a style="top:200px;position:absolute;z-index:10003;color:white;font-weight:600;font-family:Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:3.75rem;" id="_time_screen"></a>
         <a style="top:280px;position:absolute;z-index:10003;color:white;font-weight:400;font-family:Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:1.125rem;" id="_date_screen">Monday, January 0</a>
@@ -44,12 +51,6 @@
                 </div>
             </div>
         </div>
-    <div class="grid">
-        <div class="grid-item" onclick="prompt('Stevia (CEO), Sironic & Bigman (Devs), FoxMoss (Domains & Games)', 'Who\'s stevia? I guess we\'ll never know.')">
-            <img src="/images/help.svg">
-            <div class="title">Credits</div>
-        </div>
-    </div>
     <div id="windows" style="width:100vw;height:100vh;">
     
         
@@ -61,41 +62,9 @@
                 <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
             <div class="w11-body" style="padding:20px;">
-
-                <p>THESE OPTIONS ARE OLD AND WILL BE REMOVED NEXT UPDATE</p>
                 <section class="field-row">
-                    <select name="Theme Selector" id="selecttheme"
-                        onchange="
-                        switch(this.value) {
-                            case '10':
-                            document.querySelector('#theme').href='https://unpkg.com/xp.css';
-                            document.body.classList.remove('xp');
-                            document.body.classList.add('w10');
-                            break;
-                            case 'xp':
-                            document.querySelector('#theme').href='https://unpkg.com/xp.css';
-                            document.body.classList.add('xp');
-                            document.body.classList.remove('w10');
-                            break
-                            case '98':
-                            document.querySelector('#theme').href='https://unpkg.com/xp.css/dist/98.css';
-                            document.body.classList.remove('xp');
-                            document.body.classList.remove('w10');
-                            break
-                        }
-                        ">
-                        <option name="Windows XP" value="xp">Windows XP</option>
-                        <option name="Windows 98" value="98">Windows 98</option>
-                        <option name="Windows 10" value="10">Windows 10</option>
-                    </select>
-                </section>
-                <section class="field-row">
-                    <input type="checkbox" id="linus" onchange="if(this.checked){document.body.classList.add('linus');alert('Only works with old UI.')}else{document.body.className = document.body.className.replace('linus', '')}">
-                    <label for="linus">Tech Tips of Linus</label>
-                </section>
-                <section class="field-row">
-                    <input type="checkbox" id="nwp" onchange="if(this.checked){document.body.classList.add('nwp');alert('Disabling new-UI is NOT RECCOMENDED and new ui will be ENFORCED in a future update.')}else{document.body.className = document.body.className.replace('nwp', '')}">
-                    <label for="nwp">OG Windows XP Ui</label>
+                    Pick your theme's base color:
+                    <input type="color" id="basecolor" value="#0000ff">
                 </section>
             </div>
         </div>
@@ -138,21 +107,25 @@
             <div class="w11-body"><section class="field-row">
                     <div class="grid-right" style="position: absolute;left:0;top:50px;">
                         <div class="grid-item" onclick="document.querySelector('#file-explorer-game').classList.toggle('hidden');">
-                            <img src="./images/explorer.png" style="border-radius:10px;">
+                            <img src="./images/explorer.png">
                             <div class="title">Games</div>
                             </div>
                         <div class="grid-item" onclick="document.querySelector('#file-explorer-app').classList.toggle('hidden');">
-                            <img src="./images/explorer.png" style="border-radius:10px;">
+                            <img src="./images/explorer.png">
                             <div class="title">Apps</div>
                             </div>
                             <div class="grid-item" onclick="document.querySelector('#file-explorer-os').classList.toggle('hidden');">
-                                <img src="./images/explorer.png" style="border-radius:10px;">
-                                <div class="title">OSes (Locked)</div>
+                                <img src="./images/explorer.png">
+                                <div class="title">Locked - Kasm</div>
                             </div>
-                            <div class="grid-item" onclick="window.location.href = '/unblock.html';">
+                            <div class="grid-item" onclick="prompt('Stevia | Sironic | Bird Man | FoxMoss', 'Version 1.06 - Who\'s stevia? We\'ll never know.')">
+                                <img src="./images/explorer.png" style="border-radius:500px;">
+                                <div class="title">Credits</div>
+                            </div>
+                            <!-- <div class="grid-item" onclick="window.location.href = '/unblock.html';">
                                 <img src="./images/LOCK.webp" style="border-radius:10px;">
                                 <div class="title">Unblock Chromebook</div>
-                            </div>
+                            </div> -->
                     </div>
                 </section>
             </div>
@@ -171,22 +144,34 @@
                 </section>
             </div>
         </div>
-        <div class="w11-window acrylic shadow hidden" id="ie" style='left:10vw;top:30px;width:80vw;height:90vh;'>
+        <div class="w11-window acrylic shadow hidden" id="ie" style='left:10vw;top:30px;width:80vw;height:80vh;overflow-y:scroll;'>
             <div class="w11-titlebar">
                 <span id="w11-title">Microsoft Edge</span>
-                <div class="icon" onclick="alert('Please close using taskbar at bottom of screen.');this.parentElement.parentElement.querySelector('.w11-body>iframe').src='/search.html';" style="right:0;border-top-right-radius: 10px;">x</div>
+                <div class="icon" onclick="alert('Please close using taskbar at bottom of screen.');" style="right:0;border-top-right-radius: 10px;">x</div>
                 <div class="icon" onclick="" style="right:40px;">-</div>
                 <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
-            <div class="w11-body">
-                <iframe id="dothing" allow-same-origin  frameborder="0" style="overflow: scroll;
-                border: 0;
-                transform: scale(0.75);
-                -ms-transform-origin: 0 0;
-                -moz-transform-origin: 0 0;
-                -o-transform-origin: 0 0;
-                -webkit-transform-origin: 0 0;
-                transform-origin: 0 0;margin:0;padding:0;width:133.3%;height:128%;"></iframe>
+            <div class="w11-body" style="overflow-y:scroll;">
+                <div class="second hidden" style="width:100%;height:50px">
+
+                </div>
+                <div class="first">    <div
+                    title="Logo"
+                    class="flex-center logo-wrapper header-center"
+                >
+                    <img class="logo" src="/logo/nwLogo.png" />
+                </div>
+
+                <form id="uv-form" class="flex-center">
+                    <input
+                    id="uv-search-engine"
+                    value="https://www.google.com/search?q=%s"
+                    type="hidden"
+                    />
+                    <input id="uv-address" type="text" placeholder="Search the web freely" />
+                </form></div>
+                <br><br><br><br>
+                <iframe class="hidden" src="" style="width:100%;height:100%" frameborder="0"></iframe>
             </div>
         </div>
 
@@ -237,6 +222,7 @@
                 <div class="icon" onclick="" style="right:80px;">+</div>
             </div>
             <div class="w11-body">
+                <input type="text" placeholder="XOR" id="xorencode"> <button onclick="document.querySelector('#xorencode').value = window.xor.encode(document.querySelector('#xorencode').value);">XOR Encode</button><br/>
                 <a style="color:white;font-family: Arial, Helvetica, sans-serif;font-weight: 600;font-size: 18px;" href="https://newgrim.klash.dev/" target="_blank">Use Newgrim to Generate the JSON</a><br>
                 <textarea name="" id="jsoncontent_ngrm" style="background-color: #444;color:white;" cols="80" rows="2" placeholder="Insert JSON content here"></textarea>
                 <br>
@@ -292,7 +278,7 @@
             </div>
         </div>
     </div>
-    <div class="startmenu11">
+    <div class="startmenu11 hidden">
         <div class="bottom">
             <div class="user-control" onclick="window.popupWithOptions('','window.localStorage.clear();window.close();','Are you sure you want to log out?')">
                 <img src="https://archive.org/download/WindowsXPUserAccountPictures/Windows%20XP%20-%20User%20Account%20Pictures.zip/red%20flower.bmp" width="30" height=30 style="border-radius: 50%;" alt="">
@@ -304,7 +290,7 @@
             </div>
         </div>
     </div>
-    <div class="searchmenu11">
+    <div class="searchmenu11 hidden">
         <div class="bottom-border"></div>
         <div class="search-bar">
             <div class="search-icon">
@@ -345,22 +331,26 @@
                 document.querySelector('.startmenu11').classList.remove('zoomin');
                 document.querySelector('.startmenu11').classList.add('zoomout');
                 setTimeout(() => {
-                    document.querySelector('.startmenu11').classList.remove('zoomout')
+                    document.querySelector('.startmenu11').classList.remove('zoomout');
+                    document.querySelector('.startmenu11').classList.add('hidden');
                 }, 200);
             }else{
                 document.querySelector('.startmenu11').classList.add('zoomin');
+                    document.querySelector('.startmenu11').classList.remove('hidden');
             }"><img src="/logo/w11.png" width=30 height=30 alt=""></div>
             <div class="startbtn" onclick="if(document.querySelector('.searchmenu11').classList.contains('zoomin')){
                 document.querySelector('.searchmenu11').classList.remove('zoomin');
                 document.querySelector('.searchmenu11').classList.add('zoomout');
                 setTimeout(() => {
                     document.querySelector('.searchmenu11').classList.remove('zoomout')
+                    document.querySelector('.searchmenu11').classList.add('hidden');
                 }, 200);
             }else{
+                document.querySelector('.searchmenu11').classList.remove('hidden');
                 document.querySelector('.searchmenu11').classList.add('zoomin');
             }"><img src="/images/w11/search.svg" alt="" id="searchtbb"></div>
             <div class="startbtn" onclick="document.querySelector('#file-explorer').classList.toggle('hidden');document.querySelector('#file-explorer-os').classList.add('hidden');document.querySelector('#file-explorer-app').classList.add('hidden');document.querySelector('#file-explorer-game').classList.add('hidden');"><img width=30 src="/images/explorer.png" alt=""></div>
-            <div class="startbtn" id="edgebtn" onclick="document.querySelector('#ie').classList.toggle('hidden');document.querySelector('#ie>.w11-body>iframe').src='/search.html';"><img width=30 src="/images/edge.png" alt=""></div>
+            <div class="startbtn" id="edgebtn" onclick="document.querySelector('#ie').classList.toggle('hidden');"><img width=30 src="/images/edge.png" alt=""></div>
             <div class="startbtn" onclick="document.querySelector('#newsroom').classList.toggle('hidden')"><img width=30 src="/images/news.png" alt=""></div>
             <div class="startbtn" onclick="document.querySelector('#schedule').classList.toggle('hidden')"><img width=30 src="/images/calendar.webp" alt=""></div>
             <div class="startbtn" onclick="document.querySelector('#theme-swapper').classList.toggle('hidden')"><img width=30 src="/images/paint.png" alt=""></div>
@@ -402,7 +392,7 @@
     </div>
     <script type="module" src="/uv/sw.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         $(function () {
             // Make boxes draggable
@@ -410,7 +400,8 @@
                 handle: ".title-bar",
                 stack: ".window",
                 containment: "parent",
-                axis: 'xy'
+                axis: 'xy',
+                delay: 1000
             });
 
             // Bring clicked box to the top

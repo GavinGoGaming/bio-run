@@ -34,5 +34,12 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const url = search(address.value, searchEngine.value);
-  location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+  document.querySelector('#ie > .w11-body > iframe').src = __uv$config.prefix + __uv$config.encodeUrl(url);
+  document.querySelector('#ie > .w11-body > iframe').classList.remove('hidden');
+  document.querySelector('.first').classList.add('hidden');
+  if(document.querySelector('.first > #uv-form')) {
+    // move it to .second
+    document.querySelector('.second').appendChild(document.querySelector('.first > #uv-form'));
+  }
+  document.querySelector('.second').classList.remove('hidden');
 });

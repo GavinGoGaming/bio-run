@@ -60,13 +60,26 @@ class xor {
     static uriencode(str) {
         return encodeURIComponent(str)
     }
-  }
-
+}
+window.xor = xor;
 function EnableFrame(id,url) {
     let frame = document.querySelector(`#${id} > .w11-body > iframe`);
     frame.src = url;
     frame.focus();
     document.querySelector(`#${id}`).classList.toggle('hidden');
+}
+window.maskopen = function(link) {
+    // const tab = window.open('about:blank', '_blank');
+    // const iframe = tab.document.createElement('iframe');
+    // const stl = iframe.style;
+    // stl.border = stl.outline = 'none';
+    // stl.width = '100vw';
+    // stl.height = '100vh';
+    // stl.position = 'fixed';
+    // stl.left = stl.right = stl.top = stl.bottom = '0';
+    // iframe.src = link;
+    // tab.document.body.appendChild(iframe);
+    window.open(link);
 }
 
 var genObject = (isApp,name,image,url,id,width,height,left) => {
@@ -75,7 +88,7 @@ var genObject = (isApp,name,image,url,id,width,height,left) => {
                 <span id="w11-title">${isApp?name:'Gamax | '+name}</span>
                 <div class="icon" onclick="this.parentElement.parentElement.classList.toggle('hidden');document.querySelector('#${id}>.w11-body>iframe').src='';" style="right:0;border-top-right-radius: 10px;">x</div>
                 <div class="icon" onclick="" style="right:40px;">-</div>
-                <div class="icon" onclick="" style="right:80px;">+</div>
+                <div class="icon" onclick="window.maskopen(\`${url}\`)" style="right:80px;">+</div>
             </div>
             <div class="w11-body">
                 <iframe frameborder="0" allow-pointer-lock style="overflow: scroll;
@@ -112,44 +125,52 @@ var games = [
         url:"https://sd592g.github.io/zj684od4lfg/",
         id:"mc15",
     },
+    {name:"Java 1.8",image:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/1/15/Minecraft_Java_%26_Bedrock_Edition_for_PC_square_key_art.jpg",url:"/uv/service/hvtrs8%2F-olcmupsgmcin.eivhwb%2Cim%2Fmmkt-",id:"mc18"},
     {
-        name:"Roblox Fixed",
+        name:"Roblox (Local)",
         image:"https://static.wikia.nocookie.net/logopedia/images/d/d6/Roblox_app_icon_2022.svg",
-        url:"/games/roblox.html",
-        id:"rbx",
-        width: "260px",
-        height: "165px",
-        left: "40vw"
+        url:"/uv/service/hvtrs8%2F-nmw%2Cge%2Frlcy-rmbnoz-aoppmrctkol%2F7369-rmbnoz",
+        id:"rbxa",
     },
     {
-        name:"Bedrock 1.20.1",
-        image:"https://static.wikia.nocookie.net/minecraft_gamepedia/images/1/15/Minecraft_Java_%26_Bedrock_Edition_for_PC_square_key_art.jpg",
-        url:"/games/minecraftbeta.html",
-        id:"mcbeta",
-        width: "260px",
-        height: "165px",
-        left: "40vw"
+        name:"Roblox (Server)",
+        image:"https://static.wikia.nocookie.net/logopedia/images/d/d6/Roblox_app_icon_2022.svg",
+        url:`/uv/service/${xor.encode('https://beta5.apktbg.com/demo')}`,
+        id:"rbxb",
     },
+    {name:"Fortnite (GFN)",image:"https://upload.wikimedia.org/wikipedia/commons/7/7c/Fortnite_F_lettermark_logo.png",url:"/uv/service/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F!%2Fna%7Bowt-gcmgs#/layout/games",id:"fn_tut"},
     {
-        name:"Cookierun",
-        image:"https://yt3.googleusercontent.com/s5yKh_haVehErhjgvkrHxEEtVtgObaTAW46UUjpl34HoBXG100huymC1FQXCcvEvaUmvjeNB=s900-c-k-c0x00ffffff-no-rj",
-        url:"/games/cookie.html",
-        id:"crk",
-        width: "260px",
-        height: "165px",
-        left: "40vw"
+        name:"Discord",
+        image:"https://seeklogo.com/images/D/discord-icon-new-2021-logo-09772BF096-seeklogo.com.png",
+        url:"https://topg.minecraft.pe/uv/service/hvtrs8%2F-dksaopd%2Ccmm-cjalnglq%2FBmg",
+        id:"discordgame"
+    },{
+        name:"TikTok",
+        image:"/images/tiktok.avif",
+        url:"/uv/service/hvtrs8%2F-tkkvoi.aoo%2F",
+        id:"tiktokgame"
     },
-    {"name":"Parkour Block 3D","image":"https://static.keygames.com/7/115577/101528/1024x1024/parkour-block-3d-2.webp","url":"https://games.crazygames.com/en_US/parkour-block-3d/index.html","id":"parkour_block_3d"},
-    {"name":"OvO Online","image":"/images/ovo-online-cover.avif","url":"https://games.crazygames.com/en_US/ovo-online/index.html","id":"ovo_online"},
+    {name:"",image:"/images/blank.png",url:"",id:"placeholder1"},
+    {name:"",image:"/images/blank.png",url:"",id:"placeholder2"},
+    {name:"",image:"/images/blank.png",url:"",id:"placeholder3"},
+    {name:"",image:"/images/blank.png",url:"",id:"placeholder4"},
+    {name:"",image:"/images/blank.png",url:"",id:"placeholder5"},
+    {name:"",image:"/images/blank.png",url:"",id:"placeholder6"},
+    {name:"",image:"/images/blank.png",url:"",id:"placeholder7"},
     {
-        name:"WebRetro",
+        name:"Retro Emulation",
         image:"https://forums.libretro.com/uploads/default/original/2X/3/3178f0212ceaf3d604accacf6b7f98bf14afa794.ico",
         url:"https://fox.klash.dev/main/games/core/",
         id:"webretro"
     },
     {"name":"Binding of Isaac","image":"https://thumbnails.pcgamingwiki.com/7/75/The_Binding_of_Isaac_Coverart.jpg/300px-The_Binding_of_Isaac_Coverart.jpg","url":"https://fox.klash.dev/main/games/bindingofissac/","id":"binding_of_isaac"},
-    {"name":"n-gon","image":"https://fox.klash.dev/main/games/n-gon/favicon.ico","url":"https://fox.klash.dev/main/games/n-gon/","id":"n-gon"},{"name":"n","image":"/N 2a.ico","url":"https://fox.klash.dev/main/games/n/","id":"n"},{"name":"Hardest Game","image":"https://fox.klash.dev/main/games/worldshardestgame/images/splash.jpg","url":"https://fox.klash.dev/main/games/worldshardestgame/","id":"hardest_game"},{"name":"1v1LOL","image":"https://play-lh.googleusercontent.com/QYGRIDJbyVO7L7jH8CwiKJ4NumTGgcTVqU3ITooLWxro-eeNns1RZ0uwGGFe-r8M4co","url":"https://fox.klash.dev/main/games/1v1lol/","id":"1v1lol"},{"name":"Shell Shockers","image":"https://math.international/favicon.ico","url":"https://math.international/","id":"shell_shockers"},
-    {"name":"Papa Louie 1","image":"https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/f54dee3512ad75e89cc256c6bec22f06.jpeg","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fpapa-louie-when-pizzas-attack.xml","id":"papa_louie_1:_when_pizzas_attack"}, {"name":"Run","image":"https://run4unblocked.files.wordpress.com/2016/08/run-1-unblocked.png","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Frun1.xml","id":"run"}, {"name":"Marvin Spectrum","image":"https://lh3.googleusercontent.com/2xI0KZfulhW8vAAIGQk-mAbQOcTkOYHgiZGM-_ww-Dez_i6ijFlkCkLfRoMC0AP0q2K-jlEuNt1GlnQxyUh41RECPe-3gSGq_Pp9hx5nlmeczYZj1k4uML8O1MdELhLBHw=w1280","url":"https://game.ubg4all.com/v2/marvinspectrum/","id":"marvin_spectrum"}, {"name":"MeatBoy","image":"https://lh4.googleusercontent.com/Osn_0FKBbT_XBBPpwFlu0qWcdsZb8CkiMsUoNmVTcslLkIZFuh79_rWqcVwfnO2UHSdaK1BbRdkS2z0O0iKzua10DwhFZ1_6uALzmSSDU5WpPQIvSGBJ2ECZW-s_pFBHyg=w1280","url":"https://fox.klash.dev/main/games/meatboy/","id":"super_meat_boy"}, {"name":"Doom","image":"https://images.gog-statics.com/7292b2c8a4f7829857569f3333a1df715ecbc6b6e5359e9ddd01962fd21b2e09_product_card_v2_mobile_slider_639.jpg","url":"https://fox.klash.dev/main/games/doom/","id":"the_doom_collection"}, {"name":"Alien Hominid","image":"https://lh6.googleusercontent.com/UlueOJT4yIcBQ7xY8MJgKJXhjB7XjDoNY-_8zpSM3SbchAd_Ue90mfdeYgFF6vCvsatvv4WDwsVXOs9WllmW7BeQ0KjJaBXTlNQ7xMk2jAwZhOfS_U8DFShwjMrBj9Z7gw=w1280","url":"https://bloxorzunblocked.github.io/","id":"alien_hominid"},
+    {"name":"n-gon","image":"https://fox.klash.dev/main/games/n-gon/favicon.ico","url":"https://fox.klash.dev/main/games/n-gon/","id":"n-gon"},{"name":"n","image":"/N 2a.ico","url":"https://fox.klash.dev/main/games/n/","id":"n"},
+    {"name":"Hardest Game","image":"https://fox.klash.dev/main/games/worldshardestgame/images/splash.jpg","url":"https://fox.klash.dev/main/games/worldshardestgame/","id":"hardest_game"},
+    {"name":"1v1LOL","image":"https://play-lh.googleusercontent.com/QYGRIDJbyVO7L7jH8CwiKJ4NumTGgcTVqU3ITooLWxro-eeNns1RZ0uwGGFe-r8M4co","url":"https://fox.klash.dev/main/games/1v1lol/","id":"onevonelol"},
+    {"name":"Shell Shockers","image":"https://math.international/favicon.ico","url":"https://math.international/","id":"shell_shockers"},
+    {"name":"Papa Louie 1","image":"https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/f54dee3512ad75e89cc256c6bec22f06.jpeg","url":"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fpapa-louie-when-pizzas-attack.xml","id":"papa_louie_1:_when_pizzas_attack"},
+    {"name":"Run","image":"https://run4unblocked.files.wordpress.com/2016/08/run-1-unblocked.png","url":"https://fox.klash.dev/main/games/run","id":"run"},
+    {"name":"Alien Hominid","image":"https://lh6.googleusercontent.com/UlueOJT4yIcBQ7xY8MJgKJXhjB7XjDoNY-_8zpSM3SbchAd_Ue90mfdeYgFF6vCvsatvv4WDwsVXOs9WllmW7BeQ0KjJaBXTlNQ7xMk2jAwZhOfS_U8DFShwjMrBj9Z7gw=w1280","url":"https://bloxorzunblocked.github.io/","id":"alien_hominid"},
     {
         name:"Vex 5",
         image:"https://fox.klash.dev/main/games/vex6/assets/icon.png",
@@ -313,7 +334,7 @@ var apps = [
     {
         name:"Discord",
         image:"https://seeklogo.com/images/D/discord-icon-new-2021-logo-09772BF096-seeklogo.com.png",
-        url:"/uv/service/"+xor.encode("https://discord.com/app"),
+        url:"https://topg.minecraft.pe/uv/service/hvtrs8%2F-dksaopd%2Ccmm-cjalnglq%2FBmg",
         id:"discord"
     },
     {
@@ -387,3 +408,9 @@ var oses = [
     })
     document.querySelector('#dothing').src = "/search.html";
 });
+var blob = document.querySelector('#cursor_blob');
+document.body.onpointermove = event => {
+    const {clientX, clientY} = event;
+    blob.animate({left: clientX + 'px',
+    top: clientY + 'px'},{duration:3000,fill:"forwards"});
+}
