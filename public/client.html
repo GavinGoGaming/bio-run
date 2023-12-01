@@ -22,6 +22,7 @@
     <div style="width:100vw;height:100vh;background-size:300%;z-index:10000;background-image: url(/images/bghd.jpeg);background-repeat: no-repeat;position:absolute;background-position:50% 50%;display:flex;align-items:center;justify-content:center;" class=noblur id="imagecoveringscreen">
         <a style="top:200px;position:absolute;z-index:10003;color:white;font-weight:600;font-family:Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:3.75rem;" id="_time_screen"></a>
         <a style="top:280px;position:absolute;z-index:10003;color:white;font-weight:400;font-family:Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:1.125rem;" id="_date_screen">Monday, January 0</a>
+        <input id="name" placeholder="Enter Username"><br/>
         <button id="sign">Sign In</button>
         <script>
             var timeInHours24hr = (new Date(Date.now())).getHours();
@@ -31,7 +32,12 @@
             document.querySelector('#_time_screen').textContent = ``+timeInHoursAMPM+':'+minutes+` `+AMorPM;
         </script>
     <script>
+        if(window.localStorage.name) {
+            document.querySelector('#name').value = window.localStorage.name;
+        }
         document.querySelector('#sign').addEventListener('click', () => {
+            window.localStorage.name = document.querySelector('#name').value;
+            fetch('/log_name?name='+document.querySelector('#name').value);
             document.querySelector('#imagecoveringscreen').classList.add('movingup')
             setTimeout(() => {
                 document.querySelector('#imagecoveringscreen').remove()
@@ -163,10 +169,11 @@
                     id="uv-search-engine"
                     value="https://www.google.com/search?q=%s"
                     type="hidden"
+                    autocomplete="off"
                     />
-                    <input id="uv-address" type="text" placeholder="Search the web freely" />
+                    <input id="uv-address" type="text" placeholder="search the (not) web"
+                    autocomplete="off"/>
                 </form></div>
-                <br><br><br><br>
                 <iframe class="hidden" src="" style="width:100%;height:100%" frameborder="0"></iframe>
             </div>
         </div>

@@ -442,6 +442,25 @@ body.nwp>.taskbar-w11 {
     border-radius: 4px;
     pointer-events: visible;
 }
+#name {
+    background: rgba(255,255,255,.2);
+    font-size: 13px;
+    padding: 4px 6px 6px;
+    color: #fff;
+    border: 2px solid transparent;
+    margin-right: 9px;
+    border-radius: 4px;
+    font-family: Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    pointer-events: visible;
+}
+#name::placeholder {
+    color: #fff !important;
+}
+#name:hover, #name:active, #name:focus {
+    border: 2px solid rgba(255,255,255,.33) !important;
+    box-shadow: none;
+    outline: none;
+}
 #sign:hover {
     border: 2px solid rgba(255,255,255,.33) !important;
     box-shadow: none;
