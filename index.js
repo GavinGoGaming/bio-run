@@ -39,8 +39,8 @@ class xor {
   }
 }
 
-app.get('/quick/:url', (req, res)=>{
-  var url = req.params.url;
+app.get('/quick/*', (req, res)=>{
+  var url = req.url.slice(7);
   console.log("[NotWindows] Server frontend received query 'quick'.");
   res.redirect('/uv/service/'+xor.encode(url));
 });
