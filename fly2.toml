@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for nwbutcool on 2024-01-26T19:48:59Z
+# fly.toml app configuration file generated for notwindows on 2024-01-16T18:17:36Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "nwbutcool"
+app = "notwindows"
 primary_region = "lax"
 kill_signal = "SIGINT"
 kill_timeout = "5s"

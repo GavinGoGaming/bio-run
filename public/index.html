@@ -1,27 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head><title>Loading | Google Drive</title></head>
-<body style="font-family: 'Segoe UI',Arial,Helvetica;background-color:#111;color:white;overflow:hidden;vertical-align: baseline;margin:0;padding:0;" onload="document.body.requestFullscreen();document.body.requestPointerLock();">
-    <h2 style="margin:auto;text-align: center;">Type "notwindows" and click enter.</h2>
-<input type="text" style="position:absolute;top:60%;left:40%;width:20%;height:80px;border-radius:10px;padding:8px;background-color:#333;color:white;border:none;outline:none;" placeholder="CLICK ME THEN TYPE IT">
+<body style="font-family: 'Segoe UI',Arial,Helvetica;background-color:#111;color:white;overflow:hidden;vertical-align: baseline;margin:0;padding:0;">
+    
 <script> 
 
-document.addEventListener('DOMContentLoaded', function(){
-    if(window.localStorage.logged == "true") {
-        window.location.href = '/client.html'
-        return;
-    } 
-})
-
-document.addEventListener('keydown',(e)=>{if(e.key == 'Enter'){
-        if(document.querySelector('input').value == 'notwindows'){
-            document.querySelector('input').style.display = 'none'
-            document.querySelector('h2').textContent = 'correct'
-            setTimeout(() => {
-                window.location.href = '/login.html'
-            }, 3000);
-        }
-    }
-})</script>
+        window.location.href = '/client.html'</script>
 </body>
 </html>

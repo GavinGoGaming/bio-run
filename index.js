@@ -41,8 +41,13 @@ class xor {
 
 app.get('/quick/*', (req, res)=>{
   var url = req.url.slice(7);
-  console.log("[NotWindows] Server frontend received query 'quick'.");
-  res.redirect('/uv/service/'+xor.encode(url));
+  if(url.startsWith('http://') || url.startsWith('https://')) {
+    console.log("[NotWindows] Server frontend received query 'quick'.");
+    res.redirect('/uv/service/'+xor.encode(url));
+  } else {
+    console.log("[NotWindows] Server frontend received query 'quick'.");
+    res.redirect(xor.decode(url));
+  }
 });
 app.get('/log_name', (req, res)=>{
   var name = req.query.name;
