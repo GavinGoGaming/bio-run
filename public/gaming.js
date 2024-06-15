@@ -106,14 +106,6 @@ var genObject = (isApp,name,image,url,id,width,height,left) => {
 </div>`};
 }
 document.addEventListener('DOMContentLoaded', ()=>{
-    if(window.localStorage.logged == undefined || window.localStorage.logged == null || window.localStorage.logged == "null" || window.localStorage.logged == "undefined") {
-        document.body.innerHTML = "<center><h2>Not signed in!</h2><br><h3 onclick='window.location.href=\"/login.html\"' style='cursor:pointer;color:blue;'>CLICK HERE TO SIGN IN</h3><br><br><h4>use your SCHOOL email & password</h4></center>";
-        document.body.style = "background-color:#333 !important;color:white !important;background-image:none !important;"
-        document.body.id = "";
-        document.body.className = "";
-        return;
-    }
-
 var windows = document.querySelector('#windows');
 var buttons = document.querySelector('#programbtns');
 var appbtns = document.querySelector('#appbtns');

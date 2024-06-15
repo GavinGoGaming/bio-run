@@ -138,7 +138,7 @@ body.xp.nwp:not(.linus) {
 }
 
 body:not(.nwp) {
-    background-image: url('/logo/nwbackground.png') !important;
+    background-image: url('/images/nwsunset.png') !important;
     color: white !important;
 }
 
